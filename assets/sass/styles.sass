@@ -1,0 +1,106 @@
+.inline-block
+	display: inline-block
+
+#footer
+	background-color: #f5f5f5
+	padding-top: 20px
+	padding-bottom: 10px
+
+@media (min-width: 768px)
+.navbar > .container .navbar-brand, 
+.navbar > .container-fluid .navbar-brand
+	margin-left: 0
+
+.list-group-item:first-child
+	border-top-right-radius: 0
+	border-top-left-radius: 0
+
+.single-comment .panel>.panel-heading
+	position: relative
+	
+.single-comment .panel>.panel-heading:after, 
+.single-comment .panel>.panel-heading:before
+	position: absolute
+	top: 11px
+	left: -16px
+	right: 100%
+	width: 0
+	height: 0
+	display: block
+	content: " "
+	border-color: transparent
+	border-style: solid solid outset
+	pointer-events: none
+
+.single-comment .panel>.panel-heading:before
+	border-right-color: #ddd
+	border-width: 8px
+
+.user-thumb
+	margin-bottom: 20px
+
+.user-thumb img.img-responsive
+	max-height: 77.5px
+
+.new-members, 
+.user-details
+	margin: 0
+	padding: 0
+	list-style: none
+	margin-bottom: 40px
+
+.user-details li
+	margin: 10px 0
+	font-size: 16px
+
+.user-details li span
+	width: 180px
+	font-weight: 700
+	display: inline-block
+
+.new-members
+	margin-left: -5px
+	margin-right: -5px
+
+.new-members li
+	display: inline-block
+	float: left
+	padding: 0 5px 20px 5px
+
+.new-members li a img
+	width: 70px
+	height: 70px
+
+.message img
+	max-width: 40px
+	max-height: 40px
+
+.message.reply.receiver img 
+	float: right
+	vertical-align: top
+
+.message.reply.receiver img, 
+.message.reply.sender img 
+	vertical-align: top
+
+.message.parent p
+	padding-left: 45px
+
+.message.reply p
+	display: inline-block
+	padding: 10px 15px
+	border-radius: 15px
+	background: #4080ff
+	color: #fff
+	margin-top: 15px
+	max-width: 45%
+
+
+.message.reply.receiver p
+	margin-right: 15px
+	float: right
+
+.message.reply.sender p
+	margin-left: 15px
+	text-align: left
+	background: #4cae4c
