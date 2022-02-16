@@ -12,11 +12,11 @@
 	<html>
 		Hello <strong>Admin</strong>. A new user has been registered on your site. Check the user profile by clicking below link:
 		<br>
-		http://site.com/user_profile.php?u_id=$new_user_id
+		http://localhost/plaunt/user_profile.php?u_id=$new_user_id
 		<br>
 		Or,
 		<br>
-		<a href='http://site.com/user_profile.php?u_id=$new_user_id'>View the User</a><br>
+		<a href='http://localhost/plaunt/user_profile.php?u_id=$new_user_id'>View the User</a><br>
 	</html>
 	";
 
