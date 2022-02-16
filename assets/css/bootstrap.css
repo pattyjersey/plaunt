@@ -3965,6 +3965,9 @@ fieldset[disabled] .btn-primary.focus {
     color: #fff;
     background-color: #5cb85c;
     border-color: #4cae4c;
+    font-size: 20px;
+    width: 200px;
+    height: 50px;
 }
 
 .btn-success:focus,
