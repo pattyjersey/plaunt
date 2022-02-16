@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Social Network</title>
+		<title>PLAUNT</title>
 
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="assets/css/bootstrap.css">
@@ -32,7 +32,7 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>
-							<a class="navbar-brand" href="#">Social Network</a>
+							<a class="navbar-brand" href="#">PLAUNT</a>
 						</div>
 				
 						<!-- Collect the nav links, forms, and other content for toggling -->
@@ -40,11 +40,11 @@
 							<form action="" method="post" class="navbar-form navbar-right" role="search">
 								<div class="form-group">
 									<label for="email">Email:</label>
-									<input type="email" name="email" class="form-control" placeholder="Email" required>
+									<input type="email" name="email" class="form-control" placeholder="email" required>
 								</div>
 								<div class="form-group">
 									<label for="pass">Password:</label>
-									<input type="password" name="pass" class="form-control" placeholder="*****" required>
+									<input type="password" name="pass" class="form-control" placeholder="password" required>
 								</div>
 								<button type="submit" name="login" class="btn btn-default">Login</button>
 							</form>
