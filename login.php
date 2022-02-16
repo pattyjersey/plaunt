@@ -14,7 +14,7 @@
 
 		if ( $check == 1 ) {
 
-			if ( $status == 'unverified') {
+			if ( $status != 'unverified') {
 
 				echo "<script>alert('Your email is not verified. Please check your email to verify.')</script>";
 				echo "<script>window.open('index.php','_self')</script>";

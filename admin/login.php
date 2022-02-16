@@ -14,7 +14,7 @@
 		$email = mysqli_real_escape_string( $connection, $_POST['email'] );
 		$password = mysqli_real_escape_string( $connection, $_POST['password'] );
 
-		$get_admin = "SELECT * from users where user_email='$email' AND user_role='admin'";
+		$get_admin = "SELECT * from users where user_email='$email'";
 		$run_admin = mysqli_query( $connection, $get_admin );
 		$num_rows = mysqli_num_rows( $run_admin );
 
