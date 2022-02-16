@@ -8,8 +8,9 @@
 					<div class="col-sm-6 side2">
 						<form method="post" class="user-registration-form form-horizontal">
 							<div class="form-group">
-								<div class="col-sm-offset-2 col-sm-4">
+								<div class="col-sm-offset-2 col-sm-8">
 									<h1 class="text-center">Sign Up</h1>
+									<p>Join us and share your thoughts!</p>
 								</div>
 							</div>
 							<div class="form-group">
