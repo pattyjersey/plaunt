@@ -12,7 +12,6 @@
 		$user_email		= $row['user_email'];
 		$user_gender	= $row['user_gender'];
 		$user_birthday	= $row['user_b_day'];
-		$user_country 	= $row['user_country'];
 		$user_image 	= $row['user_image'];
 		$register_date  = $row['register_date'];
 		$last_login 	= $row['last_login'];
@@ -32,7 +31,6 @@
 	<img src="user/user_images/<?php echo $user_image; ?>" class="img-responsive" alt="">
 	<ul class="list-group">
 		<li class="list-group-item">Name: <?php echo $user_name; ?></li>
-		<li class="list-group-item">Country: <?php echo $user_country; ?></li>
 		<li class="list-group-item">Last Login: <?php echo $last_login; ?></li>
 		<li class="list-group-item">Member Since: <?php echo $register_date; ?></li>
 		<li class="list-group-item"><a href="my_messages.php?inbox&u_id=<?php echo $user_id; ?>">Messages (<?php echo $count_msg; ?>)</a></li>
