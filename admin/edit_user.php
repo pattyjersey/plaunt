@@ -23,7 +23,6 @@
 			$user_name = $row_users['user_name'];
 			$user_pass = $row_users['user_pass'];
 			$user_email = $row_users['user_email'];
-			$user_country = $row_users['user_country'];
 			$user_gender = $row_users['user_gender'];
 			$user_image = $row_users['user_image'];
 			$user_reg_date = $row_users['register_date'];
@@ -35,7 +34,6 @@
 			$name = $_POST['u_name'];
 			$u_pass = $_POST['u_pass'];
 			$u_email = $_POST['u_email'];
-			$u_country = $_POST['u_country'];
 			$u_gender = $_POST['u_gender'];
 			$u_image = $_FILES['u_image']['name'];
 			$u_image = $user_id.$u_image;
@@ -43,7 +41,7 @@
 
 			move_uploaded_file( $image_tmp, "../user/user_images/$u_image" );
 
-			$update = "UPDATE users set user_name='$name',user_pass='$u_pass',user_email='$u_email',user_country='$u_country',user_gender='$u_gender',user_image='$u_image' where user_id='$user_id'";
+			$update = "UPDATE users set user_name='$name',user_pass='$u_pass',user_email='$u_email',user_gender='$u_gender',user_image='$u_image' where user_id='$user_id'";
 			$run = mysqli_query( $connection, $update );
 
 			if ( $run ) {
@@ -76,18 +74,6 @@
 			<label for="u_email" class="col-sm-2">Email:</label>
 			<div class="col-sm-10">
 				<input type="email" class="form-control" name="u_email" value="<?php echo $user_email; ?>">
-			</div>
-		</div>
-		<div class="form-group">
-			<label for="u_country" class="col-sm-2">Country:</label>
-			<div class="col-sm-10">
-				<select name="u_country" class="form-control">
-				  <option><?php echo $user_country; ?></option>
-				  <option value="Australia">Australia</option>
-				  <option value="Bangladesh">Bangladesh</option>
-				  <option value="United States">United States</option>
-				  <option value="United Kingdom">United Kingdom</option>
-				</select>
 			</div>
 		</div>
 		<div class="form-group">

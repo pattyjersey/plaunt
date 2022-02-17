@@ -35,7 +35,7 @@ if ( isset( $_POST['sign_up'] ) ) {
 
 			if ( $run_insert ) {
 
-				echo "<div class='alert alert-success'>Hi $name, registration is almost complete. We have send an email to $email, please check your inbox or spam folder.</div>";
+				echo "<div class='alert alert-success'>Hi, $name, You are now registered!";
 
 			}else {
 				echo "User was not inserted";
@@ -49,8 +49,7 @@ if ( isset( $_POST['sign_up'] ) ) {
 	// change the following email according to your email address. the email user will receive the new user notification.
 	$admin_email = "plaunt2022@gmail.com";
 
-	include( "templates/email/user_welcome_email.php" );
-	include( "templates/email/admin_email.php" );
+
 
 }
 
