@@ -34,18 +34,6 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="u_country" class="col-sm-2">Country:</label>
-					<div class="col-sm-10">
-						<select name="u_country" class="form-control"  disabled="disabled">
-						  <option><?php echo $user_country; ?></option>
-						  <option value="Australia">Australia</option>
-						  <option value="Bangladesh">Bangladesh</option>
-						  <option value="United States">United States</option>
-						  <option value="United Kingdom">United Kingdom</option>
-						</select>
-					</div>
-				</div>
-				<div class="form-group">
 					<label for="u_gender" class="col-sm-2">Gender:</label>
 					<div class="col-sm-10">
 						<select name="u_gender" class="form-control" disabled="disabled">
