@@ -29,6 +29,7 @@ function insertPost() {
 
 		$title 		= addslashes( $_POST['title'] );
 		$content 	= addslashes( $_POST['content'] );
+		$image 	= addslashes( $_POST['image'] );
 		$topic 		= $_POST['topic'];
 
 		if ( $content == '' ) {
@@ -38,7 +39,7 @@ function insertPost() {
 
 		}else {
 			
-			$insert 	= "INSERT into posts(user_id,topic_id,post_title,post_content,post_date) values('$user_id','$topic','$title','$content',NOW())";
+			$insert 	= "INSERT into posts(user_id,topic_id,post_title,post_content, post_image, post_date) values('$user_id','$topic','$title','$content',$image, NOW())";
 
 			$run 		= mysqli_query( $connection, $insert );
 
@@ -81,6 +82,7 @@ function get_posts() {
 		$user_id = $row_posts['user_id'];
 		$post_title = $row_posts['post_title'];
 		$content = $row_posts['post_content'];
+		$image = $row_posts['post_image'];
 		$post_date = $row_posts['post_date'];
 
 		// getting the user who has posted the thread
@@ -135,6 +137,7 @@ function single_post() {
 		$user_id = $row_posts['user_id'];
 		$post_title = $row_posts['post_title'];
 		$content = $row_posts['post_content'];
+		$image = $row_posts['post_image'];
 		$post_date = $row_posts['post_date'];
 
 		// getting the user who has posted the thread
@@ -230,6 +233,7 @@ function get_cats() {
 		$user_id = $row_posts['user_id'];
 		$post_title = $row_posts['post_title'];
 		$content = $row_posts['post_content'];
+		$image = $row_posts['post_image'];
 		$post_date = $row_posts['post_date'];
 
 		// getting the user who has posted the thread
@@ -289,6 +293,7 @@ function GetResults() {
 		$user_id = $row_posts['user_id'];
 		$post_title = $row_posts['post_title'];
 		$content = $row_posts['post_content'];
+		$image = $row_posts['post_image'];
 		$post_date = $row_posts['post_date'];
 
 		// getting the user who has posted the thread
@@ -342,6 +347,7 @@ function user_posts() {
 		$user_id = $row_posts['user_id'];
 		$post_title = $row_posts['post_title'];
 		$content = $row_posts['post_content'];
+		$image = $row_posts['post_image'];
 		$post_date = $row_posts['post_date'];
 
 		// getting the user who has posted the thread
@@ -416,7 +422,6 @@ function user_profile() {
 		$output .= "<ul class='user-details'>";
 		$output .= "<li><span>Name: </span>$name</li>";
 		$output .= "<li><span>Gender: </span>$gender</li>";
-		$output .= "<li><span>Country: </span>$country</li>";
 		$output .= "<li><span>Last Login: </span>$last_login</li>";
 		$output .= "<li><span>Member Since: </span>$register_date</li>";
 		$output .= "</ul>";

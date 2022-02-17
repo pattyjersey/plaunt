@@ -21,6 +21,7 @@
 
 			$topic_id = $row['topic_id'];
 			$post_title = $row['post_title'];
+			$post_image = $row['post_image'];
 			$post_content = $row['post_content'];
 
 			// getting category name of the current post
@@ -36,9 +37,10 @@
 
 			$title = $_POST['post_title'];
 			$content = $_POST['post_content'];
+			$image = $_POST['post_image'];
 			$topic_id = $_POST['topic'];
 
-			$update_post = "UPDATE posts set post_title='$title', post_content='$content', topic_id='$topic_id', post_date=NOW() where post_id='$post_id'";
+			$update_post = "UPDATE posts set post_title='$title', post_content='$content', post_image='$image', topic_id='$topic_id', post_date=NOW() where post_id='$post_id'";
 			$run_update = mysqli_query( $connection, $update_post );
 
 			if ( $run_update ) {
@@ -65,6 +67,11 @@
 			<div class="col-sm-10">
 				<textarea name="post_content" class="form-control" rows="20"><?php echo $post_content; ?></textarea>
 			</div>
+		</div>
+		<div class="form-group">
+				<div class="col-sm-12">
+					<textarea name="image" class="form-control" cols="30" rows="10"><?php echo $post_image; ?></textarea>
+				</div>
 		</div>
 		<div class="form-group">
 			<label for="topic" class="col-sm-2">Category:</label>

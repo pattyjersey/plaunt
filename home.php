@@ -27,6 +27,11 @@
 					</div>
 				</div>
 				<div class="form-group">
+			<div class="col-sm-12">
+				<input type="file" class="form-control" name="image">
+			</div>
+			</div>
+				<div class="form-group">
 					<div class="col-sm-12">
 						<select name="topic" class="form-control">
 							<option value="">Select a topic</option>

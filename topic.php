@@ -26,6 +26,11 @@
 				</div>
 				<div class="form-group">
 					<div class="col-sm-12">
+						<textarea name="image" class="form-control" cols="30" rows="10"><?php echo $post_image; ?></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-12">
 						<select name="topic" class="form-control">
 							<option value="">Select a topic</option>
 							<?php getTopics(); ?>
