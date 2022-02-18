@@ -34,7 +34,7 @@
 		<li class="list-group-item">Last Login: <?php echo $last_login; ?></li>
 		<li class="list-group-item">Member Since: <?php echo $register_date; ?></li>
 		<li class="list-group-item"><a href="my_messages.php?inbox&u_id=<?php echo $user_id; ?>">Messages (<?php echo $count_msg; ?>)</a></li>
-		<li class="list-group-item"><a href="my_posts.php?u_id=<?php echo $user_id; ?>">My Posts (<?php echo $posts; ?>)</a></li>
+		<li class="list-group-item"><a href="my_posts.php?u_id=<?php echo $user_id; ?>">My Plants (<?php echo $posts; ?>)</a></li>
 		<li class="list-group-item"><a href="edit_profile.php?u_id=<?php echo $user_id; ?>">Edit My Account</a></li>
 		<li class="list-group-item"><a href="logout.php">Logout</a></li>
 	</ul>

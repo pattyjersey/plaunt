@@ -157,7 +157,7 @@ CREATE TABLE `users` (
   `status` text NOT NULL,
   `verification_code` int(100) NOT NULL,
   `posts` text NOT NULL,
-  `admin` varchar(100) NOT NULL
+  `user_role` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
