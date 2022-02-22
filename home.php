@@ -41,7 +41,7 @@
 				</div>
 				<div class="form-group">
 					<div class="col-sm-12">
-						<input type="submit" name="sub" class="btn btn-success pull-right" value="Post to Timeline">
+						<input type="submit" name="sub" class="btn btn-success pull-right" value="Post">
 					</div>
 				</div>
 			</form>
