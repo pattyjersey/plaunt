@@ -15,7 +15,7 @@
 		
 		<div class="col-sm-9">
 			<form action="home.php?id=<?php echo $user_id; ?>" method="post" class="form-horizontal">
-				<h2>What's your question today? let's discuss!</h2>
+				<h2>Any questions sprouting today? Let's discuss!</h2>
 				<div class="form-group">
 					<div class="col-sm-12">
 						<input type="text" name="title" class="form-control" placeholder="Write a Title" required>
