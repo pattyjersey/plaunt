@@ -26,8 +26,8 @@
 
 					$post_title = $row['post_title'];
 					$post_content = $row['post_content'];
-					$post_image = $row['post_image'];
-
+					$post_water = $row['post_water'];
+					$post_plant = $row['post_plant'];
 				}
 
 			?>
@@ -45,7 +45,13 @@
 				</div>
 				<div class="form-group">
 					<div class="col-sm-12">
-						<textarea name="image" class="form-control" cols="30" rows="10"><?php echo $post_image; ?></textarea>
+						<input type="water" name="title" class="form-control" value="<?php echo $post_water; ?>">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="plant" class="col-sm-2"></label>
+					<div class="col-sm-10">
+						<input type="file" class="form-control" name="plant" required>
 					</div>
 				</div>
 				<div class="form-group">
@@ -68,11 +74,12 @@
 
 					$title = $_POST['title'];
 					$content = $_POST['content'];
-					$image = $_POST['image'];
+					$water = $_POST['water'];
+					$plant = $_POST['plant'];
 					$topic_id = $_POST['topic'];
 					
 
-					$update_post = "UPDATE posts set post_title='$title', post_content='$content',post_image='$image' topic_id='$topic_id' where post_id='$get_id'";
+					$update_post = "UPDATE posts set post_title='$title', post_content='$content', post_water='$water', post_plant='$plant', topic_id='$topic_id' where post_id='$get_id'";
 					$run_update = mysqli_query( $connection, $update_post );
 
 					if ( $run_update ) {

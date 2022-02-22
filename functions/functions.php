@@ -29,7 +29,8 @@ function insertPost() {
 
 		$title 		= addslashes( $_POST['title'] );
 		$content 	= addslashes( $_POST['content'] );
-		$image 	= addslashes( $_POST['image'] );
+		$water		= addslashes( $_POST['water'] );
+		$plant		= addslashes( $_POST['plant'] );
 		$topic 		= $_POST['topic'];
 
 		if ( $content == '' ) {
@@ -39,7 +40,7 @@ function insertPost() {
 
 		}else {
 			
-			$insert 	= "INSERT into posts(user_id,topic_id,post_title,post_content, post_image, post_date) values('$user_id','$topic','$title','$content',$image, NOW())";
+			$insert 	= "INSERT into posts(user_id,topic_id,post_title,post_content,post_water, post_plant, post_date) values('$user_id','$topic','$title','$content','$water','$plant',NOW())";
 
 			$run 		= mysqli_query( $connection, $insert );
 
@@ -82,7 +83,8 @@ function get_posts() {
 		$user_id = $row_posts['user_id'];
 		$post_title = $row_posts['post_title'];
 		$content = $row_posts['post_content'];
-		$image = $row_posts['post_image'];
+		$water = $row_posts['post_water'];
+		$plant = $row_posts['post_plant'];
 		$post_date = $row_posts['post_date'];
 
 		// getting the user who has posted the thread
@@ -106,6 +108,8 @@ function get_posts() {
 		$output  .= "</ol>";
 		$output  .= "<h3>$post_title</h3>";
 		$output  .= "<p>$content</p>";
+		$output  .= "<p>$water</p>";
+		$output .= "<img src='user/user_images/$plant' class='img-responsive'>";
 		$output  .= "<a href='single.php?post_id=$post_id' class='btn btn-success'>See Replies or Reply to This</a>";
 		$output  .= "</div>";
 		$output  .= "</div>";
@@ -137,7 +141,8 @@ function single_post() {
 		$user_id = $row_posts['user_id'];
 		$post_title = $row_posts['post_title'];
 		$content = $row_posts['post_content'];
-		$image = $row_posts['post_image'];
+		$water = $row_posts['post_water'];
+		$plant = $row_posts['post_plant'];
 		$post_date = $row_posts['post_date'];
 
 		// getting the user who has posted the thread
@@ -161,6 +166,8 @@ function single_post() {
 		$output  .= "</ol>";
 		$output  .= "<h3>$post_title</h3>";
 		$output  .= "<p>$content</p>";
+		$output  .= "<p>$water</p>";
+		$output .= "<img src='user/user_images/$plant' class='img-responsive'>";
 		$output  .= "</div>";
 		$output  .= "</div>";
 		$output  .= "</div>";
@@ -233,7 +240,8 @@ function get_cats() {
 		$user_id = $row_posts['user_id'];
 		$post_title = $row_posts['post_title'];
 		$content = $row_posts['post_content'];
-		$image = $row_posts['post_image'];
+		$water = $row_posts['post_water'];
+		$plant = $row_posts['post_plant'];
 		$post_date = $row_posts['post_date'];
 
 		// getting the user who has posted the thread
@@ -257,6 +265,8 @@ function get_cats() {
 		$output  .= "</ol>";
 		$output  .= "<h3>$post_title</h3>";
 		$output  .= "<p>$content</p>";
+		$output  .= "<p>$water</p>";
+		$output .= "<img src='user/user_images/$plant' class='img-responsive'>";
 		$output  .= "<a href='single.php?post_id=$post_id' class='btn btn-success'>See Replies or Reply to This</a>";
 		$output  .= "</div>";
 		$output  .= "</div>";
@@ -293,7 +303,8 @@ function GetResults() {
 		$user_id = $row_posts['user_id'];
 		$post_title = $row_posts['post_title'];
 		$content = $row_posts['post_content'];
-		$image = $row_posts['post_image'];
+		$water = $row_posts['post_water'];
+		$plant = $row_posts['post_plant'];
 		$post_date = $row_posts['post_date'];
 
 		// getting the user who has posted the thread
@@ -317,6 +328,8 @@ function GetResults() {
 		$output  .= "</ol>";
 		$output  .= "<h3>$post_title</h3>";
 		$output  .= "<p>$content</p>";
+		$output  .= "<p>$water</p>";
+		$output .= "<img src='user/user_images/$plant' class='img-responsive'>";
 		$output  .= "<a href='single.php?post_id=$post_id' class='btn btn-success'>See Replies or Reply to This</a>";
 		$output  .= "</div>";
 		$output  .= "</div>";
@@ -347,7 +360,8 @@ function user_posts() {
 		$user_id = $row_posts['user_id'];
 		$post_title = $row_posts['post_title'];
 		$content = $row_posts['post_content'];
-		$image = $row_posts['post_image'];
+		$water = $row_posts['post_water'];
+		$plant = $row_posts['post_plant'];
 		$post_date = $row_posts['post_date'];
 
 		// getting the user who has posted the thread
@@ -371,6 +385,8 @@ function user_posts() {
 		$output  .= "</ol>";
 		$output  .= "<h3>$post_title</h3>";
 		$output  .= "<p>$content</p>";
+		$output  .= "<p>$water</p>";
+		$output .= "<img src='user/user_images/$plant' class='img-responsive'>";
 		$output  .= "<div class='btn-group'>";
 		$output  .= "<a href='single.php?post_id=$post_id' class='btn btn-success'>View</a>";
 		$output  .= "<a href='edit_post.php?post_id=$post_id' class='btn btn-info'>Edit</a>";

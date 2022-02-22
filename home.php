@@ -28,7 +28,13 @@
 				</div>
 				<div class="form-group">
 					<div class="col-sm-12">
-						<input type="file" class="form-control" name="image">
+						<input type="number" name="water" class="form-control" placeholder="Indicate Water" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="plant" class="col-sm-12"></label>
+					<div class="col-sm-10">
+						<input type="file" class="form-control" name="plant" required>
 					</div>
 				</div>
 				<div class="form-group">
