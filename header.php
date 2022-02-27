@@ -39,7 +39,7 @@
 						<div class="collapse navbar-collapse navbar-ex1-collapse">
 							<form method="get" action="results.php" id="form1" class="navbar-form navbar-right" role="search">
 						        <div class="form-group">
-						          <input type="text" name="user_query" class="form-control" placeholder="Search a topic">
+						          <input type="text" name="user_query" class="form-control" placeholder="Find Species">
 						        </div>
 						        <input type="submit" name="search" class="btn btn-default" value="Search">
 						    </form>
