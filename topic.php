@@ -19,32 +19,36 @@
 						<input type="text" name="title" class="form-control" placeholder="Species" required>
 					</div>
 				</div>
-				<div class="form-group">
-					<div class="col-sm-12">
-						<input type="number" name="water" class="form-control" placeholder="How often should it be watered" required>
+				<div class="col-md-6">
+					<div class="form-group">
+						<div class="col-sm-13">
+							<input type="number" name="water" class="form-control" placeholder="How often should it be watered" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-13">
+							<input type="text" name="watered" class="form-control" placeholder="Last watered" required>
+						</div>
 					</div>
 				</div>
-				<div class="form-group">
-					<div class="col-sm-12">
-						<input type="text" name="watered" class="form-control" placeholder="Last watered" required>
+				<div class="col-md-6">
+					<div class="form-group">
+						<div class="col-sm-13">
+							<select type="text" name="soil" class="form-control" required>
+  								<option selected>Soil type</option>
+  								<option value="Damp">Damp</option>
+  								<option value="Not Damp">Not Damp</option>
+							</select>
+						</div>
 					</div>
-				</div>
-				<div class="form-group">
-					<div class="col-sm-12">
-					<select name="soil" type="text" class="form-control" required>
-  						<option selected>Soil type</option>
-  						<option value="1">damp</option>
-  						<option value="2">Not damp</option>
-					</select>
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="col-sm-12">
-					<select name="sun" type="text" class="form-control" required>
-  						<option selected>Sunlight</option>
-  						<option value="1">direct Sunlight</option>
-  						<option value="2">Indirect Sunlight</option>
-					</select>
+					<div class="form-group">
+						<div class="col-sm-13">
+							<select type="text" name="sun" class="form-control" required>
+  								<option selected>Sunlight</option>
+  								<option value="Direct Sunlight">direct Sunlight</option>
+  								<option value="Indirect Sunlight">Indirect Sunlight</option>
+							</select>
+						</div>
 					</div>
 				</div>
 				<div class="form-group">
@@ -68,7 +72,7 @@
 				</div>
 				<div class="form-group">
 					<div class="col-sm-12">
-						<input type="submit" name="sub" class="btn btn-success pull-right" value="Post to Timeline">
+						<input type="submit" name="sub" class="btn btn-success drew pull-right" value="Post to Timeline">
 					</div>
 				</div>
 			</form>
