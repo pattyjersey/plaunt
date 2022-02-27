@@ -50,7 +50,7 @@
 							</div>
 							<div class="form-group">
 								<div class="col-sm-offset-2 col-sm-10">
-									<button type="submit" name="sign_up" class="btn btn-default btn-success">Sign Up</button>
+									<button type="submit" name="sign_up" class="btn btn-default btn-success drew">Sign Up</button>
 								</div>
 							</div>
 						</form>

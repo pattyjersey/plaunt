@@ -25,8 +25,9 @@
 					$row = mysqli_fetch_array( $run_post );
 
 					$post_title = $row['post_title'];
-					$post_content = $row['post_content'];
 					$post_water = $row['post_water'];
+					$post_watered = $row['post_watered'];
+					$post_content = $row['post_content'];
 					$post_plant = $row['post_plant'];
 				}
 
@@ -40,12 +41,35 @@
 				</div>
 				<div class="form-group">
 					<div class="col-sm-12">
-						<textarea name="content" class="form-control" cols="30" rows="10"><?php echo $post_content; ?></textarea>
+						<input type="date" name="water" class="form-control" value="<?php echo $post_water; ?>">
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="col-sm-12">
-						<input type="water" name="title" class="form-control" value="<?php echo $post_water; ?>">
+						<input type="text" name="watered" class="form-control" value="<?php echo $post_watered; ?>">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-12">
+					<select name="soil" type="text" class="form-control" value="<?php echo $post_soil; ?>>
+  						<option selected>Soil type</option>
+  						<option value="1">damp</option>
+  						<option value="2">Not damp</option>
+					</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-12">
+					<select name="sun" type="text" class="form-control" value="<?php echo $post_sun; ?>>
+  						<option selected>Sunlight</option>
+  						<option value="1">direct Sunlight</option>
+  						<option value="2">Indirect Sunlight</option>
+					</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-12">
+						<textarea name="content" class="form-control" cols="30" rows="10"><?php echo $post_content; ?></textarea>
 					</div>
 				</div>
 				<div class="form-group">
@@ -73,13 +97,14 @@
 				if ( isset( $_POST['update'] ) ) {
 
 					$title = $_POST['title'];
-					$content = $_POST['content'];
 					$water = $_POST['water'];
+					$watered = $_POST['watered'];
+					$content = $_POST['content'];
 					$plant = $_POST['plant'];
 					$topic_id = $_POST['topic'];
 					
 
-					$update_post = "UPDATE posts set post_title='$title', post_content='$content', post_water='$water', post_plant='$plant', topic_id='$topic_id' where post_id='$get_id'";
+					$update_post = "UPDATE posts set post_title='$title', post_water='$water', post_watered='$watered', post_content='$content', post_plant='$plant', topic_id='$topic_id' where post_id='$get_id'";
 					$run_update = mysqli_query( $connection, $update_post );
 
 					if ( $run_update ) {

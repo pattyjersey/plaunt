@@ -16,7 +16,35 @@
 				<h2>What's your question today? let's discuss!</h2>
 				<div class="form-group">
 					<div class="col-sm-12">
-						<input type="text" name="title" class="form-control" placeholder="Write a Title" required>
+						<input type="text" name="title" class="form-control" placeholder="Species" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-12">
+						<input type="number" name="water" class="form-control" placeholder="How often should it be watered" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-12">
+						<input type="text" name="watered" class="form-control" placeholder="Last watered" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-12">
+					<select name="soil" type="text" class="form-control" required>
+  						<option selected>Soil type</option>
+  						<option value="1">damp</option>
+  						<option value="2">Not damp</option>
+					</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-12">
+					<select name="sun" type="text" class="form-control" required>
+  						<option selected>Sunlight</option>
+  						<option value="1">direct Sunlight</option>
+  						<option value="2">Indirect Sunlight</option>
+					</select>
 					</div>
 				</div>
 				<div class="form-group">
@@ -25,13 +53,8 @@
 					</div>
 				</div>
 				<div class="form-group">
+					<label for="plant" class="col-sm-12"></label>
 					<div class="col-sm-12">
-						<input type="number" name="water" class="form-control" placeholder="Indicate Water" required>
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="plant" class="col-sm-2"></label>
-					<div class="col-sm-10">
 						<input type="file" class="form-control" name="plant" required>
 					</div>
 				</div>
@@ -52,6 +75,23 @@
 			<?php insertPost(); ?>
 			<div id="posts">
 				<?php 
+					if (isset($_POST['upload'])) {
+  
+					$plant  = $_FILES['plant']['name'];
+					$plant = $user_id.$plant;
+					
+					$image_tmp = $_FILES['plant']['tmp_name'];
+
+					move_uploaded_file( $image_tmp, "user/user_images/$plant" );
+
+					$update = "INSERT into posts (plant) values ('$plant')";
+					$run = mysqli_query( $connection, $update );
+					}
+
+
+
+
+
 
 					if ( isset( $_GET['topic'] ) ) {
 

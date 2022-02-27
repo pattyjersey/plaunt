@@ -12,13 +12,44 @@
 		include ( "user_sidebar.php" );
 ?>
 
-		
 		<div class="col-sm-9">
 			<form action="home.php?id=<?php echo $user_id; ?>" method="post" class="form-horizontal">
 				<h2>Anything sprouting today? Let's discuss!</h2>
 				<div class="form-group">
 					<div class="col-sm-12">
-						<input type="text" name="title" class="form-control" placeholder="Write a Title" required>
+						<input type="text" name="title" class="form-control" placeholder="Species" required>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<div class="col-sm-13">
+							<input type="number" name="water" class="form-control" placeholder="How often should it be watered" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-13">
+							<input type="text" name="watered" class="form-control" placeholder="Last watered" required>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<div class="col-sm-13">
+							<select type="text" name="soil" class="form-control" required>
+  								<option selected>Soil type</option>
+  								<option value="Damp">Damp</option>
+  								<option value="Not Damp">Not Damp</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-13">
+							<select type="text" name="sun" class="form-control" required>
+  								<option selected>Sunlight</option>
+  								<option value="Direct Sunlight">direct Sunlight</option>
+  								<option value="Indirect Sunlight">Indirect Sunlight</option>
+							</select>
+						</div>
 					</div>
 				</div>
 				<div class="form-group">
@@ -27,13 +58,8 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<div class="col-sm-12">
-						<input type="number" name="water" class="form-control" placeholder="Indicate Water" required>
-					</div>
-				</div>
-				<div class="form-group">
 					<label for="plant" class="col-sm-12"></label>
-					<div class="col-sm-10">
+					<div class="col-sm-12">
 						<input type="file" class="form-control" name="plant" required>
 					</div>
 				</div>
@@ -47,17 +73,19 @@
 				</div>
 				<div class="form-group">
 					<div class="col-sm-12">
-						<input type="submit" name="sub" class="btn btn-success pull-right" value="Post">
+						<input type="submit" name="sub" class="btn btn-success drew pull-right" value="Post">
 					</div>
-				</div>
+				</div>			
 			</form>
+
+
+
 			<?php insertPost(); ?>
 			<div id="posts">
 				<h3>Most recent discussions.</h3>
 				<?php get_posts(); ?>
 			</div>
-		</div>
-
+	</div>
 
 <?php 
 
