@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Feb 28, 2019 at 11:23 PM
--- Server version: 10.1.37-MariaDB-cll-lve
--- PHP Version: 5.6.30
+-- Host: 127.0.0.1
+-- Generation Time: Feb 27, 2022 at 08:58 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `mahbktbn_snetwork`
+-- Database: `plaunt`
 --
 
 -- --------------------------------------------------------
@@ -33,7 +32,7 @@ CREATE TABLE `comments` (
   `post_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `comment` varchar(100) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -64,7 +63,7 @@ CREATE TABLE `messages` (
   `reply` varchar(300) NOT NULL,
   `status` varchar(30) NOT NULL,
   `msg_type` text NOT NULL,
-  `msg_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `msg_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -96,26 +95,20 @@ CREATE TABLE `posts` (
   `topic_id` int(11) NOT NULL,
   `post_title` text NOT NULL,
   `post_content` text NOT NULL,
-  `post_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `post_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `post_water` text NOT NULL,
+  `post_watered` text NOT NULL,
+  `post_soil` text NOT NULL,
+  `post_sun` text NOT NULL,
+  `post_plant` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`post_id`, `user_id`, `topic_id`, `post_title`, `post_content`, `post_date`) VALUES
-(17, 20, 8, 'Why do we use it?', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\r\n\r\n\r\n', '2016-08-13 15:43:51'),
-(18, 20, 8, 'Why do we use it?', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\r\n\r\n\r\n', '2016-08-13 15:43:56'),
-(19, 20, 8, 'Why do we use it?', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\r\n\r\n\r\n', '2016-08-13 15:44:01'),
-(20, 20, 8, 'Why do we use it?', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\r\n\r\n\r\n', '2016-08-13 15:44:05'),
-(21, 20, 8, 'Why do we use it?', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\r\n\r\n\r\n', '2016-08-13 15:44:10'),
-(22, 20, 8, 'Why do we use it?', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\r\n\r\n\r\n', '2016-08-13 15:44:19'),
-(23, 25, 6, 'wrewrrw', 'rerytyrt', '2016-08-23 01:57:24'),
-(24, 30, 6, 'What is this like?', 'Can I post something awesome here', '2017-05-27 21:40:12'),
-(25, 39, 6, 'test', 'zdravo', '2018-07-24 09:34:12'),
-(26, 39, 7, 'sql', 'insert into select', '2018-07-24 09:40:45'),
-(27, 42, 0, 'dasdas', 'adasdas', '2018-11-17 12:42:34'),
-(28, 49, 7, 'The Download link for the sql empty database file does not exist', 'The download link http://mahbub.me/project/social_network.sql.zip there is no zip file please fix it ', '2019-03-01 00:37:01');
+INSERT INTO `posts` (`post_id`, `user_id`, `topic_id`, `post_title`, `post_content`, `post_date`, `post_water`, `post_watered`, `post_soil`, `post_sun`, `post_plant`) VALUES
+(127, 22, 6, 'asdasd', 'sasdasda', '2022-02-27 07:43:18', '23', 'last year', 'Damp', 'Direct Sunlight', 'AAV ? (1).png');
 
 -- --------------------------------------------------------
 
@@ -165,7 +158,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_name`, `user_pass`, `user_email`, `user_country`, `user_gender`, `user_b_day`, `user_image`, `register_date`, `last_login`, `status`, `verification_code`, `posts`, `user_role`) VALUES
-(22, 'Mahbubur Rahman', 'lieu10ant', 'mahbuburrahmanmihir@gmail.com', 'Bangladesh', 'Male', '2016-08-13', '221.jpg', '2016-08-13', '2016-08-13', 'verified', 1836886117, 'No', 'subscriber'),
+(22, 'Mahbubur Rahman', 'lieu10ant', 'mahbuburrahmanmihir@gmail.com', 'Bangladesh', 'Male', '2016-08-13', '22POGS.png', '2016-08-13', '2016-08-13', 'verified', 1836886117, 'Yes', 'subscriber'),
 (23, 'Aion', '01838424797', 'mainul.aion@gmail.com', 'Bangladesh', 'Male', '1993-03-11', '2302_Dokan Blog Post.png', '2016-08-14', '2016-08-14', 'verified', 1160617070, 'No', 'subscriber'),
 (24, 'ouzhan', 'qweqwe312', 'qweqwe312@hotmail.com', 'United States', 'Male', '1996-05-05', 'default.jpg', '2016-08-22', '2016-08-22', 'unverified', 560061542, 'No', 'subscriber'),
 (25, 'oguzz', 'qweqwe312', 'uguro276@gmail.com', 'Australia', 'Male', '1995-12-31', 'default.jpg', '2016-08-22', '2016-08-22', 'verified', 148386299, 'Yes', 'subscriber'),
@@ -192,7 +185,8 @@ INSERT INTO `users` (`user_id`, `user_name`, `user_pass`, `user_email`, `user_co
 (46, 'Matan', 'jmq83183j', 'Matanc98@gmail.com', 'United States', 'Male', '2013-07-09', 'default.jpg', '2019-02-17', '2019-02-17', 'unverified', 28028873, 'No', 'subscriber'),
 (47, 'ubong', 'ubongetuk', 'ubetuk82@gmail.com', 'United Kingdom', 'Male', '1987-02-23', 'default.jpg', '2019-02-25', '2019-02-25', 'unverified', 114464420, 'No', 'subscriber'),
 (48, 'test2', 'test2test2', 'test2@test2.com', 'United States', 'Male', '1985-05-05', 'default.jpg', '2019-02-28', '2019-02-28', 'unverified', 1125133362, 'No', 'subscriber'),
-(49, 'Tihomir', 'tisho1986', 'tihomir.rankov@gmail.com', 'United Kingdom', 'Male', '1984-12-05', 'default.jpg', '2019-02-28', '2019-02-28', 'verified', 954346384, 'Yes', 'subscriber');
+(49, 'Tihomir', 'tisho1986', 'tihomir.rankov@gmail.com', 'United Kingdom', 'Male', '1984-12-05', 'default.jpg', '2019-02-28', '2019-02-28', 'verified', 954346384, 'Yes', 'subscriber'),
+(50, 'Allan Andrew Villanueva', 'andrew123', 'allanandrew.villanueva@gmail.com', '', 'Male', '2022-02-02', '501.png.png', '2022-02-21', '2022-02-21', 'unverified', 1491603715, 'Yes', '');
 
 --
 -- Indexes for dumped tables
@@ -248,7 +242,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
 
 --
 -- AUTO_INCREMENT for table `topics`
@@ -260,7 +254,7 @@ ALTER TABLE `topics`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

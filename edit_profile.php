@@ -75,7 +75,7 @@
 
 					if ( $run ) {
 
-						echo "<script>alert('Your Profile Updated!')</script>";
+						echo "<script>alert('Your profile is updated!')</script>";
 						echo "<script>window.open( 'home.php', '_self' )</script>";
 
 					}

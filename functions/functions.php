@@ -36,7 +36,6 @@ function insertPost() {
 		$plant		= addslashes( $_POST['plant'] );
 		$topic 		= $_POST['topic'];
 
-
 		if ( $content == '' ) {
 
 			echo "<h2>Please enter topic description.</h2>";
@@ -110,17 +109,17 @@ function get_posts() {
 		$output  .= "</div>";
 		$output  .= "<div class='col-sm-10'>";
 		$output  .= "<ol class='breadcrumb'>";
-		$output  .= "<li><a href='user_profile.php?u_id=$user_id'>$user_name</a></li>";
+		$output  .= "<li><a class='druu' href='user_profile.php?u_id=$user_id'>$user_name</a></li>";
 		$output  .= "<li>$post_date</li>";
 		$output  .= "</ol>";
 		$output  .= "<h3>Species: $post_title</h3>";
 		$output  .= "<p>Watered every: $water times a day</p>";
 		$output  .= "<p>Last watered: $watered</p>";
-		$output  .= "<p>soil should be: $soil</p>";
+		$output  .= "<p>Soil should be: $soil</p>";
 		$output  .= "<p>Sunlight: $sun</p>";
 		$output  .= "<p>Suggestion: $content</p>";
-		$output .= "<img src='user/user_images/$plant' class='img-responsive'>";
-		$output  .= "<a href='single.php?post_id=$post_id' class='btn btn-success'>See Replies or Reply to This</a>";
+		$output .= "<img src='user/user_images/$plant' class='img-responsive'> <br/>";
+		$output  .= "<a href='single.php?post_id=$post_id' class='btn andruu'>Open Post</a>";
 		$output  .= "</div>";
 		$output  .= "</div>";
 		$output  .= "</div>";
@@ -174,13 +173,13 @@ function single_post() {
 		$output  .= "</div>";
 		$output  .= "<div class='col-sm-10'>";
 		$output  .= "<ol class='breadcrumb'>";
-		$output  .= "<li><a href='user_profile.php?u_id=$user_id'>$user_name</a></li>";
+		$output  .= "<li><a class='druu' href='user_profile.php?u_id=$user_id'>$user_name</a></li>";
 		$output  .= "<li>$post_date</li>";
 		$output  .= "</ol>";
 		$output  .= "<h3>Species: $post_title</h3>";
 		$output  .= "<p>Watered every: $water times a day</p>";
 		$output  .= "<p>Last watered: $watered</p>";
-		$output  .= "<p>soil should be: $soil</p>";
+		$output  .= "<p>Soil should be: $soil</p>";
 		$output  .= "<p>Sunlight: $sun</p>";
 		$output  .= "<p>Suggestion: $content</p>";
 		$output .= "<img src='user/user_images/$plant' class='img-responsive'>";
@@ -216,7 +215,7 @@ function single_post() {
 		$output  .= "</div>";
 		$output  .= "<div class='form-group'>";
 		$output  .= "<div class='col-sm-12'>";
-		$output  .= "<input type='submit' name='reply' class='btn btn-success pull-right' value='Reply to This'>";
+		$output  .= "<input type='submit' name='reply' class='btn btn-success pull-right' value='Reply'>";
 		$output  .= "</div>";
 		$output  .= "</div>";
 		$output  .= "</form>";						
@@ -289,7 +288,7 @@ function get_cats() {
 		$output  .= "<p>Sunlight: $sun</p>";
 		$output  .= "<p>Suggestion: $content</p>";
 		$output .= "<img src='user/user_images/$plant' class='img-responsive'>";
-		$output  .= "<a href='single.php?post_id=$post_id' class='btn btn-success'>See Replies or Reply to This</a>";
+		$output  .= "<a href='single.php?post_id=$post_id' class='btn btn-success'>Open Post</a>";
 		$output  .= "</div>";
 		$output  .= "</div>";
 		$output  .= "</div>";
@@ -420,11 +419,11 @@ function user_posts() {
 		$output  .= "<p>soil should be: $soil</p>";
 		$output  .= "<p>Sunlight: $sun</p>";
 		$output  .= "<p>Suggestion: $content</p>";
-		$output .= "<img src='../user/user_images/$plant' class='img-responsive'>";
+		$output .= "<img src='user/user_images/$plant' class='img-responsive'> <br/>";
 		$output  .= "<div class='btn-group'>";
-		$output  .= "<a href='single.php?post_id=$post_id' class='btn btn-success'>View</a>";
-		$output  .= "<a href='edit_post.php?post_id=$post_id' class='btn btn-info'>Edit</a>";
-		$output  .= "<a href='functions/delete_post.php?post_id=$post_id' class='btn btn-danger'>Delete</a>";
+		$output  .= "<a href='single.php?post_id=$post_id' class='btn andruu'>View</a>";
+		$output  .= "<a href='edit_post.php?post_id=$post_id' class='btn andruu'>Edit</a>";
+		$output  .= "<a href='functions/delete_post.php?post_id=$post_id' class='btn andruu'>Delete</a>";
 		$output  .= "</div>";
 		$output  .= "</div>";
 		$output  .= "</div>";

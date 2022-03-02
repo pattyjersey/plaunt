@@ -21,20 +21,20 @@
 				</div>
 				<div class="form-group">
 					<div class="col-sm-12">
-						<input type="number" name="water" class="form-control" placeholder="How often should it be watered" required>
+						<input type="number" name="water" class="form-control" placeholder="How many times a day should it be watered" required>
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="col-sm-12">
-						<input type="text" name="watered" class="form-control" placeholder="Last watered" required>
+						<input type="text" name="watered" class="form-control" placeholder="Last watered" onfocus="(this.type='date')" onblur="(this.type='text')" required>
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="col-sm-12">
 					<select name="soil" type="text" class="form-control" required>
   						<option selected>Soil type</option>
-  						<option value="1">damp</option>
-  						<option value="2">Not damp</option>
+  						<option value="1">Damp</option>
+  						<option value="2">Not Damp</option>
 					</select>
 					</div>
 				</div>
@@ -42,7 +42,7 @@
 					<div class="col-sm-12">
 					<select name="sun" type="text" class="form-control" required>
   						<option selected>Sunlight</option>
-  						<option value="1">direct Sunlight</option>
+  						<option value="1">Direct Sunlight</option>
   						<option value="2">Indirect Sunlight</option>
 					</select>
 					</div>
@@ -68,7 +68,7 @@
 				</div>
 				<div class="form-group">
 					<div class="col-sm-12">
-						<input type="submit" name="sub" class="btn btn-success pull-right" value="Post to Timeline">
+						<input type="submit" name="sub" class="btn btn-success pull-right" value="Post">
 					</div>
 				</div>
 			</form>

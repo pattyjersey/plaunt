@@ -21,7 +21,7 @@
 	<body>
 		
 		<header id="header">
-			<nav class="navbar navbar-default" role="navigation">
+			<nav class="navbar navbar-default druu" role="navigation">
 				<div class="container">
 					<div class="row">
 						<!-- Brand and toggle get grouped for better mobile display -->
@@ -46,7 +46,7 @@
 									<label for="pass">Password:</label>
 									<input type="password" name="pass" class="form-control" placeholder="password" required>
 								</div>
-								<button type="submit" name="login" class="btn btn-default">Login</button>
+								<button type="submit" name="login" class="btn btn-default druu">Login</button>
 							</form>
 						</div><!-- /.navbar-collapse -->
 					</div>

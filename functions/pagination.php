@@ -13,18 +13,18 @@
 	$output .= "<ul class='pagination'>";
 
 	// Goint to first page
-	$output .= "<li><a href='home.php?page=1'>First Page</a></li>";
+	$output .= "<li><a style='color: #7c9679;' href='home.php?page=1'>First Page</a></li>";
 
 	for ( $i = 1; $i <= $total_pages; $i++ ) {
 		if ( $page == $i ) {
-			$output .= "<li class='active'><a href='home.php?page=$i'>$i</a></li>";
+			$output .= "<li class='active'><a style='background-color: #7c9679;' href='home.php?page=$i'>$i</a></li>";
 		}else{
 			$output .= "<li><a href='home.php?page=$i'>$i</a></li>";
 		}
 	}
 
 	// Going to last page
-	$output .= "<li><a href='home.php?page=$total_pages'>Last Page</a></li>";
+	$output .= "<li><a style='color: #7c9679;' href='home.php?page=$total_pages'>Last Page</a></li>";
 	$output .= "</ul>";
 	$output .= "</div>";
 

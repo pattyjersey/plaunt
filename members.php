@@ -12,7 +12,7 @@
 		include ( "user_sidebar.php" );
 ?>
 		<div class="col-sm-9">
-			<h2>All Registered Users on this site:</h2>
+			<h2>All Registered Members</h2>
 
 			<div class="row">
 				<?php 

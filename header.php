@@ -21,7 +21,7 @@
 	<body>
 		
 		<header id="header">
-			<nav class="navbar navbar-default" role="navigation">
+			<nav class="navbar navbar-default druu" role="navigation">
 				<div class="container">
 					<div class="row">
 						<!-- Brand and toggle get grouped for better mobile display -->
@@ -41,7 +41,7 @@
 						        <div class="form-group">
 						          <input type="text" name="user_query" class="form-control" placeholder="Find Species">
 						        </div>
-						        <input type="submit" name="search" class="btn btn-default" value="Search">
+						        <input type="submit" name="search" class="btn btn-default druu" value="Search">
 						    </form>
 
 							<ul class="nav navbar-nav navbar-right">
@@ -60,7 +60,7 @@
 												$topic_id = $row['topic_id'];
 												$topic_title = $row['topic_title'];
 
-					            				echo "<li><a href='topic.php?topic=$topic_id'>$topic_title</a></li>";
+					            				echo "<li><a class='nori' href='topic.php?topic=$topic_id'>$topic_title</a></li>";
 
 											}
 

@@ -28,15 +28,13 @@
 
 	?>
 
-	<img src="user/user_images/<?php echo $user_image; ?>" class="img-responsive" alt="">
+	<img src="user/user_images/<?php echo $user_image; ?>" class="img-responsive" alt="Profile">
 	<ul class="list-group">
-		<li class="list-group-item">Name: <?php echo $user_name; ?></li>
-		<li class="list-group-item">Last Login: <?php echo $last_login; ?></li>
-		<li class="list-group-item">Member Since: <?php echo $register_date; ?></li>
-		<li class="list-group-item"><a href="my_messages.php?inbox&u_id=<?php echo $user_id; ?>">Messages (<?php echo $count_msg; ?>)</a></li>
-		<li class="list-group-item"><a href="my_posts.php?u_id=<?php echo $user_id; ?>">My Plants (<?php echo $posts; ?>)</a></li>
-		<li class="list-group-item"><a href="edit_profile.php?u_id=<?php echo $user_id; ?>">Edit My Account</a></li>
-		<li class="list-group-item"><a href="logout.php">Logout</a></li>
+		<li class="list-group-item"><?php echo "<b>".$user_name."</b>"; ?></li>
+		<li class="list-group-item"><a class="druu" href="my_messages.php?inbox&u_id=<?php echo $user_id; ?>">Messages (<?php echo $count_msg; ?>)</a></li>
+		<li class="list-group-item"><a class="druu" href="my_posts.php?u_id=<?php echo $user_id; ?>">My Plants (<?php echo $posts; ?>)</a></li>
+		<li class="list-group-item"><a class="druu" href="edit_profile.php?u_id=<?php echo $user_id; ?>">Edit My Account</a></li>
+		<li class="list-group-item"><a class="druu" href="logout.php">Logout</a></li>
 	</ul>
 
 </div>

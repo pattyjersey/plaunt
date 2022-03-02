@@ -12,9 +12,9 @@
 		include ( "user_sidebar.php" );
 ?>
 
-		<div class="col-sm-9">
+		<div class="col-sm-9 homedruu">
 			<form action="home.php?id=<?php echo $user_id; ?>" method="post" class="form-horizontal">
-				<h2>Anything sprouting today? Let's discuss!</h2>
+				<h3>Anything sprouting today? Let's discuss!</h3>
 				<div class="form-group">
 					<div class="col-sm-12">
 						<input type="text" name="title" class="form-control" placeholder="Species" required>
@@ -23,12 +23,12 @@
 				<div class="col-md-6">
 					<div class="form-group">
 						<div class="col-sm-13">
-							<input type="number" name="water" class="form-control" placeholder="How often should it be watered" required>
+							<input type="number" name="water" class="form-control" placeholder="How many times a day should it be watered" required>
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="col-sm-13">
-							<input type="text" name="watered" class="form-control" placeholder="Last watered" required>
+							<input type="text" name="watered" class="form-control" placeholder="Last watered" onfocus="(this.type='date')" onblur="(this.type='text')" required>
 						</div>
 					</div>
 				</div>
@@ -36,7 +36,7 @@
 					<div class="form-group">
 						<div class="col-sm-13">
 							<select type="text" name="soil" class="form-control" required>
-  								<option selected>Soil type</option>
+  								<option disabled selected>Soil type</option>
   								<option value="Damp">Damp</option>
   								<option value="Not Damp">Not Damp</option>
 							</select>
@@ -45,8 +45,8 @@
 					<div class="form-group">
 						<div class="col-sm-13">
 							<select type="text" name="sun" class="form-control" required>
-  								<option selected>Sunlight</option>
-  								<option value="Direct Sunlight">direct Sunlight</option>
+  								<option disabled selected>Sunlight</option>
+  								<option value="Direct Sunlight">Direct Sunlight</option>
   								<option value="Indirect Sunlight">Indirect Sunlight</option>
 							</select>
 						</div>
@@ -66,23 +66,21 @@
 				<div class="form-group">
 					<div class="col-sm-12">
 						<select name="topic" class="form-control">
-							<option value="">Select a topic</option>
+							<option disabled value="">Select a topic</option>
 							<?php getTopics(); ?>
 						</select>
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="col-sm-12">
-						<input type="submit" name="sub" class="btn btn-success drew pull-right" value="Post">
+						<input type="submit" name="sub" class="btn pull-right andruu" value="Post">
 					</div>
-				</div>			
+				</div>	
 			</form>
-
-
 
 			<?php insertPost(); ?>
 			<div id="posts">
-				<h3>Most recent discussions.</h3>
+				<h3>Recent Posts</h3>
 				<?php get_posts(); ?>
 			</div>
 	</div>
