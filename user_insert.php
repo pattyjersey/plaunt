@@ -5,9 +5,7 @@ if ( isset( $_POST['sign_up'] ) ) {
 	$name 	 = mysqli_real_escape_string( $connection, $_POST['u_name'] );
 	$pass 	 = mysqli_real_escape_string( $connection, $_POST['u_pass'] );
 	$email 	 = mysqli_real_escape_string( $connection, $_POST['u_email'] );
-	$country = mysqli_real_escape_string( $connection, $_POST['u_country'] );
 	$gender  = mysqli_real_escape_string( $connection, $_POST['u_gender'] );
-	$b_day   = mysqli_real_escape_string( $connection, $_POST['u_birthday'] );
 	$status  = "unverified";
 	$posts   = "No";
 	$verification_code = mt_rand();
@@ -30,7 +28,7 @@ if ( isset( $_POST['sign_up'] ) ) {
 
 	} else {
 
-		$insert = "INSERT INTO users(user_name,user_pass,user_email,user_country,user_gender,user_b_day,user_image,register_date,last_login,status,verification_code,posts,user_role) VALUES('{$name}','{$pass}','{$email}','{$country}','{$gender}','{$b_day}','default.jpg',NOW(),NOW(),'{$status}','{$verification_code}','{$posts}','subscriber')";
+		$insert = "INSERT INTO users(user_name,user_pass,user_email,user_gender,user_image,register_date,last_login,status,verification_code,posts,user_role) VALUES('{$name}','{$pass}','{$email}','{$gender}','default.jpg',NOW(),NOW(),'{$status}','{$verification_code}','{$posts}','subscriber')";
 		
 		$run_insert = mysqli_query( $connection, $insert );
 

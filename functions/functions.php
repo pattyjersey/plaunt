@@ -19,7 +19,7 @@ function getTopics() {
 
 }
 
-// Inser user's post to database
+/* Insert user's post to database
 function insertPost() {
 
 	global $connection;
@@ -36,14 +36,16 @@ function insertPost() {
 		$plant		= addslashes( $_POST['plant'] );
 		$topic 		= $_POST['topic'];
 
+
 		if ( $content == '' ) {
 
-			echo "<h2>Please enter topic description.</h2>";
+			echo "<h2>Please enter plant description.</h2>";
 			exit();
 
 		}else {
 			
 			$insert 	= "INSERT into posts(user_id,topic_id,post_title, post_water, post_watered, post_soil, post_sun, post_content, post_plant, post_date) values('$user_id','$topic','$title','$water', '$watered', '$soil', '$sun', '$content','$plant',NOW())";
+
 
 			$run 		= mysqli_query( $connection, $insert );
 
@@ -61,7 +63,7 @@ function insertPost() {
 	}
 
 }
-
+*/
 
 // function for displaying posts
 function get_posts() {
@@ -113,12 +115,12 @@ function get_posts() {
 		$output  .= "<li>$post_date</li>";
 		$output  .= "</ol>";
 		$output  .= "<h3>Species: $post_title</h3>";
-		$output  .= "<p>Watered every: $water times a day</p>";
-		$output  .= "<p>Last watered: $watered</p>";
-		$output  .= "<p>Soil should be: $soil</p>";
-		$output  .= "<p>Sunlight: $sun</p>";
-		$output  .= "<p>Suggestion: $content</p>";
-		$output .= "<img src='user/user_images/$plant' class='img-responsive'> <br/>";
+		$output  .= "<p><b>Watered every:</b> $water times a day</p>";
+		$output  .= "<p><b>Last watered:</b> $watered</p>";
+		$output  .= "<p><b>Soil should be:</b> $soil</p>";
+		$output  .= "<p><b>Sunlight:</b> $sun</p>";
+		$output  .= "<p><b>Suggestion:</b> $content</p>";
+		$output  .= "<img src='user/user_images/$plant' class='img-responsive'> <br/>";
 		$output  .= "<a href='single.php?post_id=$post_id' class='btn andruu'>Open Post</a>";
 		$output  .= "</div>";
 		$output  .= "</div>";
@@ -176,13 +178,13 @@ function single_post() {
 		$output  .= "<li><a class='druu' href='user_profile.php?u_id=$user_id'>$user_name</a></li>";
 		$output  .= "<li>$post_date</li>";
 		$output  .= "</ol>";
-		$output  .= "<h3>Species: $post_title</h3>";
-		$output  .= "<p>Watered every: $water times a day</p>";
-		$output  .= "<p>Last watered: $watered</p>";
-		$output  .= "<p>Soil should be: $soil</p>";
-		$output  .= "<p>Sunlight: $sun</p>";
-		$output  .= "<p>Suggestion: $content</p>";
-		$output .= "<img src='user/user_images/$plant' class='img-responsive'>";
+		$output  .= "<h3>Species:</b> $post_title</h3>";
+		$output  .= "<p><b>Watered every:</b> $water times a day</p>";
+		$output  .= "<p><b>Last watered:</b> $watered</p>";
+		$output  .= "<p><b>Soil should be:</b> $soil</p>";
+		$output  .= "<p><b>Sunlight:</b> $sun</p>";
+		$output  .= "<p><b>Suggestion:</b> $content</p>";
+		$output  .= "<img src='user/user_images/$plant' class='img-responsive'>";
 		$output  .= "</div>";
 		$output  .= "</div>";
 		$output  .= "</div>";
@@ -281,12 +283,12 @@ function get_cats() {
 		$output  .= "<li><a href='user_profile.php?user_id=$user_id'>$user_name</a></li>";
 		$output  .= "<li>$post_date</li>";
 		$output  .= "</ol>";
-		$output  .= "<h3>Species: $post_title</h3>";
-		$output  .= "<p>Watered every: $water times a day</p>";
-		$output  .= "<p>Last watered: $watered</p>";
-		$output  .= "<p>soil should be: $soil</p>";
-		$output  .= "<p>Sunlight: $sun</p>";
-		$output  .= "<p>Suggestion: $content</p>";
+		$output  .= "<h3>Species:</b> $post_title</h3>";
+		$output  .= "<p><b>Watered every:</b> $water times a day</p>";
+		$output  .= "<p><b>Last watered:</b> $watered</p>";
+		$output  .= "<p><b>soil should be:</b> $soil</p>";
+		$output  .= "<p><b>Sunlight:</b> $sun</p>";
+		$output  .= "<p><b>Suggestion:</b> $content</p>";
 		$output .= "<img src='user/user_images/$plant' class='img-responsive'>";
 		$output  .= "<a href='single.php?post_id=$post_id' class='btn btn-success'>Open Post</a>";
 		$output  .= "</div>";
@@ -351,11 +353,11 @@ function GetResults() {
 		$output  .= "<li>$post_date</li>";
 		$output  .= "</ol>";
 		$output  .= "<h3>Species: $post_title</h3>";
-		$output  .= "<p>Watered every: $water times a day</p>";
-		$output  .= "<p>Last watered: $watered</p>";
-		$output  .= "<p>soil should be: $soil</p>";
-		$output  .= "<p>Sunlight: $sun</p>";
-		$output  .= "<p>Suggestion: $content</p>";
+		$output  .= "<p><b>Watered every:</b> $water times a day</p>";
+		$output  .= "<p><b>Last watered:</b> $watered</p>";
+		$output  .= "<p><b>soil should be:</b> $soil</p>";
+		$output  .= "<p><b>Sunlight:</b> $sun</p>";
+		$output  .= "<p><b>Suggestion:</b> $content</p>";
 		$output .= "<img src='user/user_images/$plant' class='img-responsive'>";
 		$output  .= "<a href='single.php?post_id=$post_id' class='btn btn-success'>See Replies or Reply to This</a>";
 		$output  .= "</div>";
@@ -414,11 +416,11 @@ function user_posts() {
 		$output  .= "<li>$post_date</li>";
 		$output  .= "</ol>";
 		$output  .= "<h3>Species: $post_title</h3>";
-		$output  .= "<p>Watered every: $water times a day</p>";
-		$output  .= "<p>Last watered: $watered</p>";
-		$output  .= "<p>soil should be: $soil</p>";
-		$output  .= "<p>Sunlight: $sun</p>";
-		$output  .= "<p>Suggestion: $content</p>";
+		$output  .= "<p><b>Watered every: </b>$water times a day</p>";
+		$output  .= "<p><b>Last watered:</b> $watered</p>";
+		$output  .= "<p><b>Soil should be:</b> $soil</p>";
+		$output  .= "<p><b>Sunlight:</b> $sun</p>";
+		$output  .= "<p><b>Suggestion:</b> $content</p>";
 		$output .= "<img src='user/user_images/$plant' class='img-responsive'> <br/>";
 		$output  .= "<div class='btn-group'>";
 		$output  .= "<a href='single.php?post_id=$post_id' class='btn andruu'>View</a>";

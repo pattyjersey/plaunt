@@ -43,13 +43,31 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="u_birthday" class="col-sm-2">Birthday:</label>
-								<div class="col-sm-10">
-									<input type="date" class="form-control" name="u_birthday" placeholder="mm/dd/yyyy" required>
+								<div class="col-sm-offset-2 col-sm-10">
+								<div class="tacbox">
+								<input id="checkbox" type="checkbox" />
+								<label for="checkbox"> I agree to these <a data-toggle="modal" data-target="#myModal">Terms and Conditions</a>.</label>
+								</div>
+								<div class="container">
+							<!-- Modal -->
+							<div class="modal fade" id="myModal" role="dialog">
+								<div class="modal-dialog">
+								<!-- Modal content-->
+								<div class="modal-content">
+									<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4 class="modal-title">Modal Header</h4>
+									</div>
+									<div class="modal-body">
+									<p> </p>
+									</div>
+									<div class="modal-footer">
+									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+									</div>
+								</div>
 								</div>
 							</div>
-							<div class="form-group">
-								<div class="col-sm-offset-2 col-sm-10">
+							</div>
 									<button type="submit" name="sign_up" class="btn btn-default btn-success drew">Sign Up</button>
 								</div>
 							</div>
