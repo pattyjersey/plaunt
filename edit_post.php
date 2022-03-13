@@ -75,8 +75,7 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<div class="col-sm-12">
-					<label for="plant" class="col-sm-2"></label>
+					<label for="plant" class="col-sm-12"></label>
 					<div class="col-sm-12">
 						<input type="file" class="form-control" name="plant" required>
 					</div>
@@ -84,16 +83,16 @@
 				<div class="form-group">
 					<div class="col-sm-12">
 						<select name="topic" class="form-control">
-							<option value="">Select a topic</option>
+							<option disabled selected value="">Select a topic</option>
 							<?php getTopics(); ?>
 						</select>
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="col-sm-12">
-						<input type="submit" name="update" class="btn pull-right andruu" value="Update Post">
+						<input type="submit" name="sub" class="btn pull-right andruu" value=" Update Post">
 					</div>
-				</div>
+				</div>	
 			</form>
 
 			<?php 

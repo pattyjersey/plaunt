@@ -32,7 +32,7 @@
 	<ul class="list-group">
 		<li class="list-group-item"><?php echo "<b>".$user_name."</b>"; ?></li>
 		<li class="list-group-item"><a class="druu" href="my_messages.php?inbox&u_id=<?php echo $user_id; ?>">Messages (<?php echo $count_msg; ?>)</a></li>
-		<li class="list-group-item"><a class="druu" href="my_posts.php?u_id=<?php echo $user_id; ?>">posts (<?php echo $posts; ?>)</a></li>
+		<li class="list-group-item"><a class="druu" href="my_posts.php?u_id=<?php echo $user_id; ?>">Posts (<?php echo $posts; ?>)</a></li>
 		<li class="list-group-item"><a class="druu" href="edit_profile.php?u_id=<?php echo $user_id; ?>">Edit My Account</a></li>
 		<li class="list-group-item"><a class="druu" href="logout.php">Logout</a></li>
 	</ul>
