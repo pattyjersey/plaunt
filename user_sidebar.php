@@ -1,4 +1,4 @@
-<div class="col-sm-3">
+<div class="col-sm-3 user-prof">
 	<?php 
 
 		$user 		= $_SESSION['user_email'];
@@ -28,7 +28,7 @@
 
 	?>
 
-	<img src="user/user_images/<?php echo $user_image; ?>" class="img-responsive" alt="Profile">
+	<img src="user/user_images/<?php echo $user_image; ?>" class="img-responsive prof" alt="Profile" style="width:300px !important;height:300px !important; object-fit:cover;">
 	<ul class="list-group">
 		<li class="list-group-item"><?php echo "<b>".$user_name."</b>"; ?></li>
 		<li class="list-group-item"><a class="druu" href="my_messages.php?inbox&u_id=<?php echo $user_id; ?>">Messages (<?php echo $count_msg; ?>)</a></li>

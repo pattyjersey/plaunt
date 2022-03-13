@@ -66,7 +66,7 @@
 				<div class="form-group">
 					<div class="col-sm-12">
 						<select name="topic" class="form-control">
-							<option disabled value="">Select a topic</option>
+							<option disabled selected value="">Select a topic</option>
 							<?php getTopics(); ?>
 						</select>
 					</div>

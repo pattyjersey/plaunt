@@ -44,6 +44,7 @@
 							</div>
 							<div class="form-group">
 								<div class="col-sm-offset-2 col-sm-10">
+<<<<<<< Updated upstream
 								<div class="tacbox">
 								<input id="checkbox" type="checkbox" />
 								<label for="checkbox"> I agree to these <a data-toggle="modal" data-target="#myModal">Terms and Conditions</a>.</label>
@@ -68,6 +69,8 @@
 								</div>
 							</div>
 							</div>
+=======
+>>>>>>> Stashed changes
 									<button type="submit" name="sign_up" class="btn btn-default btn-success drew">Sign Up</button>
 								</div>
 							</div>

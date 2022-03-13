@@ -11,40 +11,44 @@
 		include ( "header.php" );
 		include ( "user_sidebar.php" );
 ?>
-		<div class="col-sm-9">
-			<form action="home.php?id=<?php echo $user_id; ?>" method="post" class="form-horizontal">
-				<h2>What's your question today? let's discuss!</h2>
+		<div class="col-sm-9 homedruu">
+		<form action="home.php?id=<?php echo $user_id; ?>" method="post" class="form-horizontal">
+				<h3>Anything sprouting today? Let's discuss!</h3>
 				<div class="form-group">
 					<div class="col-sm-12">
 						<input type="text" name="title" class="form-control" placeholder="Species" required>
 					</div>
 				</div>
-				<div class="form-group">
-					<div class="col-sm-12">
-						<input type="number" name="water" class="form-control" placeholder="How many times a day should it be watered" required>
+				<div class="col-md-6">
+					<div class="form-group">
+						<div class="col-sm-13">
+							<input type="number" name="water" class="form-control" placeholder="How many times a day should it be watered" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-13">
+							<input type="text" name="watered" class="form-control" placeholder="Last watered" onfocus="(this.type='date')" onblur="(this.type='text')" required>
+						</div>
 					</div>
 				</div>
-				<div class="form-group">
-					<div class="col-sm-12">
-						<input type="text" name="watered" class="form-control" placeholder="Last watered" onfocus="(this.type='date')" onblur="(this.type='text')" required>
+				<div class="col-md-6">
+					<div class="form-group">
+						<div class="col-sm-13">
+							<select type="text" name="soil" class="form-control" required>
+  								<option disabled selected>Soil type</option>
+  								<option value="Damp">Damp</option>
+  								<option value="Not Damp">Not Damp</option>
+							</select>
+						</div>
 					</div>
-				</div>
-				<div class="form-group">
-					<div class="col-sm-12">
-					<select name="soil" type="text" class="form-control" required>
-  						<option selected>Soil type</option>
-  						<option value="1">Damp</option>
-  						<option value="2">Not Damp</option>
-					</select>
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="col-sm-12">
-					<select name="sun" type="text" class="form-control" required>
-  						<option selected>Sunlight</option>
-  						<option value="1">Direct Sunlight</option>
-  						<option value="2">Indirect Sunlight</option>
-					</select>
+					<div class="form-group">
+						<div class="col-sm-13">
+							<select type="text" name="sun" class="form-control" required>
+  								<option disabled selected>Sunlight</option>
+  								<option value="Direct Sunlight">Direct Sunlight</option>
+  								<option value="Indirect Sunlight">Indirect Sunlight</option>
+							</select>
+						</div>
 					</div>
 				</div>
 				<div class="form-group">
@@ -61,16 +65,16 @@
 				<div class="form-group">
 					<div class="col-sm-12">
 						<select name="topic" class="form-control">
-							<option value="">Select a topic</option>
+							<option disabled selected value="">Select a topic</option>
 							<?php getTopics(); ?>
 						</select>
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="col-sm-12">
-						<input type="submit" name="sub" class="btn btn-success pull-right" value="Post">
+						<input type="submit" name="sub" class="btn pull-right andruu" value="Post">
 					</div>
-				</div>
+				</div>	
 			</form>
 			<?php 
 							global $connection;
@@ -146,7 +150,7 @@
 					}
 
 				?>
-				<h3>All post in '<?php echo $topic_name; ?>' category.</h3>
+				<h3>All posts in '<?php echo $topic_name; ?>'</h3>
 				<?php get_cats(); ?>
 			</div>
 		</div>

@@ -12,11 +12,11 @@
 		include ( "user_sidebar.php" );
 ?>
 		<div class="col-sm-9">
-			<h2>See your messages:</h2>
+			<h2>Messages</h2>
 
 			<div class="clearfix btn-group text-center">
-				<a href="my_messages.php?inbox&u_id=<?php echo $user_id; ?>" class="btn btn-success">My Inbox</a>
-				<a href="my_messages.php?sent&u_id=<?php echo $user_id; ?>" class="btn btn-primary">Sent Items</a>
+				<a href="my_messages.php?inbox&u_id=<?php echo $user_id; ?>" class="btn btn-success andruu">My Inbox</a>
+				<a href="my_messages.php?sent&u_id=<?php echo $user_id; ?>" class="btn btn-primary andruu">Sent Items</a>
 			</div>
 			<?php
 				if ( isset( $_GET['sent'] ) ) {

@@ -94,6 +94,7 @@ function get_posts() {
 		$content = $row_posts['post_content'];
 		$plant = $row_posts['post_plant'];
 		$post_date = $row_posts['post_date'];
+		$postdate = date('F j, Y h:ia', strtotime($post_date));
 
 		// getting the user who has posted the thread
 		$user = "SELECT * from users where user_id='$user_id' AND posts='yes'";
@@ -107,12 +108,12 @@ function get_posts() {
 		$output   = "<div class='panel panel-default'>";
 		$output  .= "<div class='panel-body'>";
 		$output  .= "<div class='col-sm-2'>";
-		$output  .= "<img src='user/user_images/$user_image' class='img-responsive'>";
+		$output  .= "<img src='user/user_images/$user_image' class='img-responsive' style='width:100px;height:100px;object-fit:cover;'>";
 		$output  .= "</div>";
 		$output  .= "<div class='col-sm-10'>";
 		$output  .= "<ol class='breadcrumb'>";
 		$output  .= "<li><a class='druu' href='user_profile.php?u_id=$user_id'>$user_name</a></li>";
-		$output  .= "<li>$post_date</li>";
+		$output  .= "<li>$postdate</li>";
 		$output  .= "</ol>";
 		$output  .= "<h3>Species: $post_title</h3>";
 		$output  .= "<p><b>Watered every:</b> $water times a day</p>";
@@ -158,6 +159,7 @@ function single_post() {
 		$content = $row_posts['post_content'];
 		$plant = $row_posts['post_plant'];
 		$post_date = $row_posts['post_date'];
+		$postdate = date('F j, Y h:ia', strtotime($post_date));
 
 		// getting the user who has posted the thread
 		$user = "SELECT * from users where user_id='$user_id' AND posts='yes'";
@@ -176,7 +178,7 @@ function single_post() {
 		$output  .= "<div class='col-sm-10'>";
 		$output  .= "<ol class='breadcrumb'>";
 		$output  .= "<li><a class='druu' href='user_profile.php?u_id=$user_id'>$user_name</a></li>";
-		$output  .= "<li>$post_date</li>";
+		$output  .= "<li>$postdate</li>";
 		$output  .= "</ol>";
 		$output  .= "<h3>Species:</b> $post_title</h3>";
 		$output  .= "<p><b>Watered every:</b> $water times a day</p>";
@@ -263,6 +265,7 @@ function get_cats() {
 		$content = $row_posts['post_content'];
 		$plant = $row_posts['post_plant'];
 		$post_date = $row_posts['post_date'];
+		$postdate = date('F j, Y h:ia', strtotime($post_date));
 
 		// getting the user who has posted the thread
 		$user = "SELECT * from users where user_id='$user_id' AND posts='yes'";
@@ -280,9 +283,10 @@ function get_cats() {
 		$output  .= "</div>";
 		$output  .= "<div class='col-sm-10'>";
 		$output  .= "<ol class='breadcrumb'>";
-		$output  .= "<li><a href='user_profile.php?user_id=$user_id'>$user_name</a></li>";
-		$output  .= "<li>$post_date</li>";
+		$output  .= "<li><a class='druu' href='user_profile.php?user_id=$user_id'>$user_name</a></li>";
+		$output  .= "<li>$postdate</li>";
 		$output  .= "</ol>";
+<<<<<<< Updated upstream
 		$output  .= "<h3>Species:</b> $post_title</h3>";
 		$output  .= "<p><b>Watered every:</b> $water times a day</p>";
 		$output  .= "<p><b>Last watered:</b> $watered</p>";
@@ -291,6 +295,16 @@ function get_cats() {
 		$output  .= "<p><b>Suggestion:</b> $content</p>";
 		$output .= "<img src='user/user_images/$plant' class='img-responsive'>";
 		$output  .= "<a href='single.php?post_id=$post_id' class='btn btn-success'>Open Post</a>";
+=======
+		$output  .= "<h3>Species: $post_title</h3>";
+		$output  .= "<p>Watered every: $water times a day</p>";
+		$output  .= "<p>Last watered: $watered</p>";
+		$output  .= "<p>Soil should be: $soil</p>";
+		$output  .= "<p>Sunlight: $sun</p>";
+		$output  .= "<p>Suggestion: $content</p>";
+		$output .= "<img src='user/user_images/$plant' class='img-responsive'> <br/>";
+		$output  .= "<a href='single.php?post_id=$post_id' class='btn btn-success andruu'>Open Post</a>";
+>>>>>>> Stashed changes
 		$output  .= "</div>";
 		$output  .= "</div>";
 		$output  .= "</div>";
@@ -332,6 +346,7 @@ function GetResults() {
 		$content = $row_posts['post_content'];
 		$plant = $row_posts['post_plant'];
 		$post_date = $row_posts['post_date'];
+		$postdate = date('F j, Y h:ia', strtotime($post_date));
 
 		// getting the user who has posted the thread
 		$user = "SELECT * from users where user_id='$user_id' AND posts='yes'";
@@ -349,10 +364,11 @@ function GetResults() {
 		$output  .= "</div>";
 		$output  .= "<div class='col-sm-10'>";
 		$output  .= "<ol class='breadcrumb'>";
-		$output  .= "<li><a href='user_profile.php?user_id=$user_id'>$user_name</a></li>";
-		$output  .= "<li>$post_date</li>";
+		$output  .= "<li><a class='druu' href='user_profile.php?user_id=$user_id'>$user_name</a></li>";
+		$output  .= "<li>$postdate</li>";
 		$output  .= "</ol>";
 		$output  .= "<h3>Species: $post_title</h3>";
+<<<<<<< Updated upstream
 		$output  .= "<p><b>Watered every:</b> $water times a day</p>";
 		$output  .= "<p><b>Last watered:</b> $watered</p>";
 		$output  .= "<p><b>soil should be:</b> $soil</p>";
@@ -360,6 +376,15 @@ function GetResults() {
 		$output  .= "<p><b>Suggestion:</b> $content</p>";
 		$output .= "<img src='user/user_images/$plant' class='img-responsive'>";
 		$output  .= "<a href='single.php?post_id=$post_id' class='btn btn-success'>See Replies or Reply to This</a>";
+=======
+		$output  .= "<p>Watered every: $water times a day</p>";
+		$output  .= "<p>Last watered: $watered</p>";
+		$output  .= "<p>Soil should be: $soil</p>";
+		$output  .= "<p>Sunlight: $sun</p>";
+		$output  .= "<p>Suggestion: $content</p>";
+		$output .= "<img src='user/user_images/$plant' class='img-responsive'> <br/>";
+		$output  .= "<a href='single.php?post_id=$post_id' class='btn btn-success andruu'>Open Post</a>";
+>>>>>>> Stashed changes
 		$output  .= "</div>";
 		$output  .= "</div>";
 		$output  .= "</div>";
@@ -395,6 +420,7 @@ function user_posts() {
 		$content = $row_posts['post_content'];
 		$plant = $row_posts['post_plant'];
 		$post_date = $row_posts['post_date'];
+		$postdate = date('F j, Y h:ia', strtotime($post_date));
 
 		// getting the user who has posted the thread
 		$user = "SELECT * from users where user_id='$user_id' AND posts='yes'";
@@ -408,20 +434,29 @@ function user_posts() {
 		$output   = "<div class='panel panel-default'>";
 		$output  .= "<div class='panel-body'>";
 		$output  .= "<div class='col-sm-2'>";
-		$output  .= "<img src='user/user_images/$user_image' class='img-responsive'>";
+		$output  .= "<img src='user/user_images/$user_image' class='img-responsive'  style='width:100px;height:100px;object-fit:cover;'>";
 		$output  .= "</div>";
 		$output  .= "<div class='col-sm-10'>";
 		$output  .= "<ol class='breadcrumb'>";
-		$output  .= "<li><a href='user_profile.php?u_id=$user_id'>$user_name</a></li>";
-		$output  .= "<li>$post_date</li>";
+		$output  .= "<li><a class='druu' href='user_profile.php?u_id=$user_id'>$user_name</a></li>";
+		$output  .= "<li>$postdate</li>";
 		$output  .= "</ol>";
 		$output  .= "<h3>Species: $post_title</h3>";
+<<<<<<< Updated upstream
 		$output  .= "<p><b>Watered every: </b>$water times a day</p>";
 		$output  .= "<p><b>Last watered:</b> $watered</p>";
 		$output  .= "<p><b>Soil should be:</b> $soil</p>";
 		$output  .= "<p><b>Sunlight:</b> $sun</p>";
 		$output  .= "<p><b>Suggestion:</b> $content</p>";
 		$output .= "<img src='user/user_images/$plant' class='img-responsive maxwidth'> <br/>";
+=======
+		$output  .= "<p>Watered every: $water times a day</p>";
+		$output  .= "<p>Last watered: $watered</p>";
+		$output  .= "<p>Soil should be: $soil</p>";
+		$output  .= "<p>Sunlight: $sun</p>";
+		$output  .= "<p>Suggestion: $content</p>";
+		$output .= "<img src='user/user_images/$plant' class='img-responsive'> <br/>";
+>>>>>>> Stashed changes
 		$output  .= "<div class='btn-group'>";
 		$output  .= "<a href='single.php?post_id=$post_id' class='btn andruu'>View</a>";
 		$output  .= "<a href='edit_post.php?post_id=$post_id' class='btn andruu'>Edit</a>";
@@ -522,14 +557,14 @@ function user_profile() {
 		$register_date = $row['register_date'];
 
 		if ( $gender == 'Male' ) {
-			$msg = "Send him a message";
+			$msg = "Message";
 		}else {
-			$msg = "Send her a message";
+			$msg = "Message";
 		}
 
 		$output  = "";
-		$output .= "<div class='panel panel-primary'>";
-		$output .= "<div class='panel-heading'><strong>Info About This User:</strong></div>";
+		$output .= "<div class='panel panel-primary' style='border-color:#819e7e'>";
+		$output .= "<div class='panel-heading' style='background-color:#819e7e;'><strong>Profile</strong></div>";
 		$output .= "<div class='panel-body'>";
 		$output .= "<div class='row'>";
 		$output .= "<div class='col-sm-8'>";
@@ -539,7 +574,7 @@ function user_profile() {
 		$output .= "<li><span>Last Login: </span>$last_login</li>";
 		$output .= "<li><span>Member Since: </span>$register_date</li>";
 		$output .= "</ul>";
-		$output .= "<a href='messages.php?u_id=$id' class='btn btn-success'>$msg</a>";
+		$output .= "<a href='messages.php?u_id=$id' class='btn btn-success andruu'>$msg</a>";
 		$output .= "</div>";
 		$output .= "<div class='col-sm-4'>";
 		$output .= "<img src='user/user_images/$image' class='img-responsive'>";
@@ -566,7 +601,7 @@ function new_members() {
 	$user = "SELECT * from users LIMIT 0,20";
 	$run_user = mysqli_query( $connection, $user );
 
-	$output  = "<h2>New members on this site:</h2>";
+	$output  = "<h2>Other Members</h2>";
 	$output .= "<ul class='new-members'>";
 
 	while ( $row = mysqli_fetch_array( $run_user ) ) {

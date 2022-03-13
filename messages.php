@@ -45,13 +45,13 @@
 				</div>
 				<div class="form-group">
 					<div class="col-sm-12">
-						<input type="submit" name="message" class="btn btn-success pull-right" value="Send Messae">
+						<input type="submit" name="message" class="btn btn-success pull-right andruu" value="Send">
 					</div>
 				</div>
 			</form>
 			<div class="row">
 				<div class="col-sm-2">
-					<img src="user/user_images/<?php echo $user_image; ?>" class="img-responsive">
+					<img src="user/user_images/<?php echo $user_image; ?>" class="img-responsive" style="width:100px;height:100px;object-fit:cover;">
 				</div>
 			</div>
 			<div class="alert alert-success" role="alert"><?php echo $user_name; ?> is member of this site since: <?php echo $reg_date; ?></div>
