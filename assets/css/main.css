@@ -131,57 +131,68 @@ img.img-responsive.inline-block {
     width: 600px !important;
 }
 
-nav.druu{
+nav.druu {
     background-color: #d7edd5;
 }
 
-input.druu{
+input.druu {
     background-color: #aebfac;
 }
 
-input.druu:hover{
+input.druu:hover {
     background-color: #7c9679;
 }
 
-input.andruu{
+input.andruu {
     background-color: #aebfac;
 }
 
-input.andruu:hover{
+input.andruu:hover {
     background-color: #7c9679;
 }
 
-button.druu{
+button.druu {
     background-color: #aebfac;
 }
 
-button.druu:hover{
+button.druu:hover {
     background-color: #7c9679;
 }
 
-body{
+body {
     background-color: #f5f9f4;
 }
 
-a.druu{
+a.druu {
     text-decoration: none;
     color: #819e7e;
 }
 
-a.druu:hover{
+a.druu:hover {
     color: #597556;
 }
 
-a.andruu{
+a.andruu {
     background-color: #aebfac;
     color: black;
 }
 
-a.andruu:hover{
+a.andruu:hover {
     background-color: #7c9679;
 }
 
-ul.dropdown-menu a.nori:hover{
+ul.dropdown-menu a.nori:hover {
     background-color: #d7edd5;
 }
+
+.img-responsive.maxwidth {
+    max-width: 80% !important;
+    min-height: 50% !important;
+    width: 500px;
+    /* width of image (px or % or auto) */
+    height: 500px;
+    object-fit: scale-down;
+}
+
+
 /*# sourceMappingURL=main.css.map */

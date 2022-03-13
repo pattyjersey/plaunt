@@ -120,7 +120,7 @@ function get_posts() {
 		$output  .= "<p><b>Soil should be:</b> $soil</p>";
 		$output  .= "<p><b>Sunlight:</b> $sun</p>";
 		$output  .= "<p><b>Suggestion:</b> $content</p>";
-		$output  .= "<img src='user/user_images/$plant' class='img-responsive'> <br/>";
+		$output  .= "<img src='user/user_images/$plant' class='img-responsive maxwidth'> <br/>";
 		$output  .= "<a href='single.php?post_id=$post_id' class='btn andruu'>Open Post</a>";
 		$output  .= "</div>";
 		$output  .= "</div>";
@@ -184,7 +184,7 @@ function single_post() {
 		$output  .= "<p><b>Soil should be:</b> $soil</p>";
 		$output  .= "<p><b>Sunlight:</b> $sun</p>";
 		$output  .= "<p><b>Suggestion:</b> $content</p>";
-		$output  .= "<img src='user/user_images/$plant' class='img-responsive'>";
+		$output  .= "<img src='user/user_images/$plant' class='img-responsive maxwidth'>";
 		$output  .= "</div>";
 		$output  .= "</div>";
 		$output  .= "</div>";
@@ -421,11 +421,74 @@ function user_posts() {
 		$output  .= "<p><b>Soil should be:</b> $soil</p>";
 		$output  .= "<p><b>Sunlight:</b> $sun</p>";
 		$output  .= "<p><b>Suggestion:</b> $content</p>";
-		$output .= "<img src='user/user_images/$plant' class='img-responsive'> <br/>";
+		$output .= "<img src='user/user_images/$plant' class='img-responsive maxwidth'> <br/>";
 		$output  .= "<div class='btn-group'>";
 		$output  .= "<a href='single.php?post_id=$post_id' class='btn andruu'>View</a>";
 		$output  .= "<a href='edit_post.php?post_id=$post_id' class='btn andruu'>Edit</a>";
 		$output  .= "<a href='functions/delete_post.php?post_id=$post_id' class='btn andruu'>Delete</a>";
+		$output  .= "</div>";
+		$output  .= "</div>";
+		$output  .= "</div>";
+		$output  .= "</div>";
+
+		echo $output;
+
+	}
+
+}
+// try drew get user posts
+function get_user_posts() {
+
+	global $connection;
+
+	if ( isset( $_GET['u_id'] ) ) {
+		$u_id = $_GET['u_id'];
+	}
+
+	$get_posts  = "SELECT * from posts where user_id='$u_id' ORDER by 1 DESC";
+	$run_posts  = mysqli_query( $connection, $get_posts );
+
+	while ( $row_posts = mysqli_fetch_array( $run_posts ) ) {
+		
+		$post_id = $row_posts['post_id'];
+		$user_id = $row_posts['user_id'];
+		$post_title = $row_posts['post_title'];
+		$water = $row_posts['post_water'];
+		$watered = $row_posts['post_watered'];
+		$soil = $row_posts['post_soil'];
+		$sun = $row_posts['post_sun'];
+		$content = $row_posts['post_content'];
+		$plant = $row_posts['post_plant'];
+		$post_date = $row_posts['post_date'];
+
+		// getting the user who has posted the thread
+		$user = "SELECT * from users where user_id='$user_id' AND posts='yes'";
+
+		$run_user = mysqli_query( $connection, $user );
+		$row_user = mysqli_fetch_array( $run_user );
+		$user_name = $row_user['user_name'];
+		$user_image = $row_user['user_image'];
+
+		// now displaying all at once
+		$output   = "<div class='panel panel-default'>";
+		$output  .= "<div class='panel-body'>";
+		$output  .= "<div class='col-sm-2'>";
+		$output  .= "<img src='user/user_images/$user_image' class='img-responsive'>";
+		$output  .= "</div>";
+		$output  .= "<div class='col-sm-10'>";
+		$output  .= "<ol class='breadcrumb'>";
+		$output  .= "<li><a href='user_profile.php?u_id=$user_id'>$user_name</a></li>";
+		$output  .= "<li>$post_date</li>";
+		$output  .= "</ol>";
+		$output  .= "<h3>Species: $post_title</h3>";
+		$output  .= "<p><b>Watered every: </b>$water times a day</p>";
+		$output  .= "<p><b>Last watered:</b> $watered</p>";
+		$output  .= "<p><b>Soil should be:</b> $soil</p>";
+		$output  .= "<p><b>Sunlight:</b> $sun</p>";
+		$output  .= "<p><b>Suggestion:</b> $content</p>";
+		$output .= "<img src='user/user_images/$plant' class='img-responsive maxwidth'> <br/>";
+		$output  .= "<a href='single.php?post_id=$post_id' class='btn andruu'>View</a>";
+		$output  .= "<div class='btn-group'>";
 		$output  .= "</div>";
 		$output  .= "</div>";
 		$output  .= "</div>";
@@ -488,8 +551,10 @@ function user_profile() {
 		echo $output;
 
 	}
+	get_user_posts();
 
 	new_members();
+
 
 }
 
@@ -519,5 +584,9 @@ function new_members() {
 	echo $output;
 
 }
+
+
+
+
 
 ?>
