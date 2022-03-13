@@ -286,16 +286,6 @@ function get_cats() {
 		$output  .= "<li><a class='druu' href='user_profile.php?user_id=$user_id'>$user_name</a></li>";
 		$output  .= "<li>$postdate</li>";
 		$output  .= "</ol>";
-<<<<<<< Updated upstream
-		$output  .= "<h3>Species:</b> $post_title</h3>";
-		$output  .= "<p><b>Watered every:</b> $water times a day</p>";
-		$output  .= "<p><b>Last watered:</b> $watered</p>";
-		$output  .= "<p><b>soil should be:</b> $soil</p>";
-		$output  .= "<p><b>Sunlight:</b> $sun</p>";
-		$output  .= "<p><b>Suggestion:</b> $content</p>";
-		$output .= "<img src='user/user_images/$plant' class='img-responsive'>";
-		$output  .= "<a href='single.php?post_id=$post_id' class='btn btn-success'>Open Post</a>";
-=======
 		$output  .= "<h3>Species: $post_title</h3>";
 		$output  .= "<p>Watered every: $water times a day</p>";
 		$output  .= "<p>Last watered: $watered</p>";
@@ -304,7 +294,6 @@ function get_cats() {
 		$output  .= "<p>Suggestion: $content</p>";
 		$output .= "<img src='user/user_images/$plant' class='img-responsive'> <br/>";
 		$output  .= "<a href='single.php?post_id=$post_id' class='btn btn-success andruu'>Open Post</a>";
->>>>>>> Stashed changes
 		$output  .= "</div>";
 		$output  .= "</div>";
 		$output  .= "</div>";
@@ -368,15 +357,6 @@ function GetResults() {
 		$output  .= "<li>$postdate</li>";
 		$output  .= "</ol>";
 		$output  .= "<h3>Species: $post_title</h3>";
-<<<<<<< Updated upstream
-		$output  .= "<p><b>Watered every:</b> $water times a day</p>";
-		$output  .= "<p><b>Last watered:</b> $watered</p>";
-		$output  .= "<p><b>soil should be:</b> $soil</p>";
-		$output  .= "<p><b>Sunlight:</b> $sun</p>";
-		$output  .= "<p><b>Suggestion:</b> $content</p>";
-		$output .= "<img src='user/user_images/$plant' class='img-responsive'>";
-		$output  .= "<a href='single.php?post_id=$post_id' class='btn btn-success'>See Replies or Reply to This</a>";
-=======
 		$output  .= "<p>Watered every: $water times a day</p>";
 		$output  .= "<p>Last watered: $watered</p>";
 		$output  .= "<p>Soil should be: $soil</p>";
@@ -384,7 +364,6 @@ function GetResults() {
 		$output  .= "<p>Suggestion: $content</p>";
 		$output .= "<img src='user/user_images/$plant' class='img-responsive'> <br/>";
 		$output  .= "<a href='single.php?post_id=$post_id' class='btn btn-success andruu'>Open Post</a>";
->>>>>>> Stashed changes
 		$output  .= "</div>";
 		$output  .= "</div>";
 		$output  .= "</div>";
@@ -442,21 +421,12 @@ function user_posts() {
 		$output  .= "<li>$postdate</li>";
 		$output  .= "</ol>";
 		$output  .= "<h3>Species: $post_title</h3>";
-<<<<<<< Updated upstream
-		$output  .= "<p><b>Watered every: </b>$water times a day</p>";
-		$output  .= "<p><b>Last watered:</b> $watered</p>";
-		$output  .= "<p><b>Soil should be:</b> $soil</p>";
-		$output  .= "<p><b>Sunlight:</b> $sun</p>";
-		$output  .= "<p><b>Suggestion:</b> $content</p>";
-		$output .= "<img src='user/user_images/$plant' class='img-responsive maxwidth'> <br/>";
-=======
 		$output  .= "<p>Watered every: $water times a day</p>";
 		$output  .= "<p>Last watered: $watered</p>";
 		$output  .= "<p>Soil should be: $soil</p>";
 		$output  .= "<p>Sunlight: $sun</p>";
 		$output  .= "<p>Suggestion: $content</p>";
 		$output .= "<img src='user/user_images/$plant' class='img-responsive'> <br/>";
->>>>>>> Stashed changes
 		$output  .= "<div class='btn-group'>";
 		$output  .= "<a href='single.php?post_id=$post_id' class='btn andruu'>View</a>";
 		$output  .= "<a href='edit_post.php?post_id=$post_id' class='btn andruu'>Edit</a>";
