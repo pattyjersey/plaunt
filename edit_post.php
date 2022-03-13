@@ -54,30 +54,18 @@
 				<div class="form-group">
 					<div class="col-sm-12">
 					<select name="soil" type="text" class="form-control" value="<?php echo $post_soil; ?>">
-<<<<<<< Updated upstream
-  						<option selected>Soil type</option>
-  						<option value="Damp">Damp</option>
-  						<option value="Not Damp">Not damp</option>
-=======
   						<option disabled selected>Soil type</option>
   						<option value="1">Damp</option>
   						<option value="2">Not damp</option>
->>>>>>> Stashed changes
 					</select>
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="col-sm-12">
 					<select name="sun" type="text" class="form-control" value="<?php echo $post_sun; ?>">
-<<<<<<< Updated upstream
-  						<option selected>Sunlight</option>
-  						<option value="Direct Sunlight">Direct Sunlight</option>
-  						<option value="Indirect Sunlight">Indirect Sunlight</option>
-=======
   						<option disabled selected>Sunlight</option>
   						<option value="1">Direct Sunlight</option>
   						<option value="2">Indirect Sunlight</option>
->>>>>>> Stashed changes
 					</select>
 					</div>
 				</div>
@@ -89,10 +77,7 @@
 				<div class="form-group">
 					<div class="col-sm-12">
 					<label for="plant" class="col-sm-2"></label>
-<<<<<<< Updated upstream
-=======
 					<div class="col-sm-12">
->>>>>>> Stashed changes
 						<input type="file" class="form-control" name="plant" required>
 					</div>
 				</div>
