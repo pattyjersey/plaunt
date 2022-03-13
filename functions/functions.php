@@ -289,7 +289,7 @@ function get_cats() {
 		$output  .= "<p><b>soil should be:</b> $soil</p>";
 		$output  .= "<p><b>Sunlight:</b> $sun</p>";
 		$output  .= "<p><b>Suggestion:</b> $content</p>";
-		$output .= "<img src='user/user_images/$plant' class='img-responsive'>";
+		$output .= "<img src='user/user_images/$plant' class='img-responsive maxwidth'>";
 		$output  .= "<a href='single.php?post_id=$post_id' class='btn btn-success'>Open Post</a>";
 		$output  .= "</div>";
 		$output  .= "</div>";
