@@ -13,7 +13,7 @@
 ?>
 
 		<div class="col-sm-9">
-			<h2>Edit Your Profile:</h2><br>
+			<h2>Edit Your Profile</h2><br>
 			<form method="post" class="user-registration-form form-horizontal" enctype="multipart/form-data">
 				<div class="form-group">
 					<label for="u_name" class="col-sm-2">Name:</label>
@@ -51,7 +51,7 @@
 				</div>
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
-						<button type="submit" name="update" class="btn btn-default btn-success drew">Update</button>
+						<button type="submit" name="update" class="btn btn-default druu">Update</button>
 					</div>
 				</div>
 			</form>
