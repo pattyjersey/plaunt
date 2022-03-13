@@ -68,7 +68,7 @@
 								</div>
 							</div>
 							</div>
-									<button type="submit" name="sign_up" class="btn btn-default btn-success drew">Sign Up</button>
+									<button type="submit" name="sign_up" class="btn btn-default druu">Sign Up</button>
 								</div>
 							</div>
 						</form>
