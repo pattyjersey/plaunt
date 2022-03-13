@@ -72,7 +72,51 @@
 					</div>
 				</div>
 			</form>
-			<?php insertPost(); ?>
+			<?php 
+							global $connection;
+							global $user_id;
+						
+							if ( isset( $_POST['sub'] ) ) {
+						
+								$title 		= addslashes( $_POST['title'] );
+								$water		= addslashes( $_POST['water'] );
+								$watered	= addslashes( $_POST['watered'] );
+								$soil		= addslashes( $_POST['soil'] );
+								$sun		= addslashes( $_POST['sun'] );
+								$content 	= addslashes( $_POST['content'] );
+								$topic 		= $_POST['topic'];
+			
+								$plant = $_FILES['plant']['name'];
+			
+								$image_tmp = $_FILES['plant']['tmp_name'];
+			
+								move_uploaded_file( $image_tmp, "user/user_images/$plant" );
+						
+								if ( $content == '' ) {
+						
+									echo "<h2>Please enter plant description.</h2>";
+									exit();
+						
+								}else {
+									
+									$insert 	= "INSERT into posts(user_id,topic_id,post_title, post_water, post_watered, post_soil, post_sun, post_content, post_plant, post_date) values('$user_id','$topic','$title','$water', '$watered', '$soil', '$sun', '$content','$plant',NOW())";
+						
+						
+									$run 		= mysqli_query( $connection, $insert );
+						
+									if ( $run ) {
+						
+										echo "<h3>Posted to timeline, looks great.</h3>";
+						
+										$update = "UPDATE users set posts='Yes' where user_id='$user_id'";
+										$run_update = mysqli_query( $connection, $update );
+						
+									}
+						
+								}
+						
+							}
+			?>
 			<div id="posts">
 				<?php 
 					if (isset($_POST['upload'])) {
