@@ -216,5 +216,14 @@ section {
     margin-right: 0;
 }
 
+.img-responsive.maxwidth {
+    max-width: 80% !important;
+    min-height: 50% !important;
+    width: 500px;
+    /* width of image (px or % or auto) */
+    height: 500px;
+    object-fit: scale-down;
+}
+
 
 /*# sourceMappingURL=main.css.map */

@@ -123,19 +123,15 @@
   
 					$plant  = $_FILES['plant']['name'];
 					$plant = $user_id.$plant;
+
 					
 					$image_tmp = $_FILES['plant']['tmp_name'];
 
 					move_uploaded_file( $image_tmp, "user/user_images/$plant" );
 
-					$update = "INSERT into posts (plant) values ('$plant')";
-					$run = mysqli_query( $connection, $update );
+					$insert = "INSERT into posts(plant) values('$plant')";
+					$run = mysqli_query( $connection, $insert );
 					}
-
-
-
-
-
 
 					if ( isset( $_GET['topic'] ) ) {
 

@@ -13,7 +13,7 @@
 ?>
 		<div class="col-sm-9">
 			<div id="posts">
-				<h2>All of your posts</h2>
+				<h2>All of your posts:</h2>
 				<br>
 				<?php user_posts(); ?>
 			</div>
