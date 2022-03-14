@@ -59,7 +59,6 @@
 									<h4 class="modal-title">Modal Header</h4>
 									</div>
 									<div class="modal-body">
-									<p> 
 									<style>
   [data-custom-class='body'], [data-custom-class='body'] * {
           background: transparent !important;
@@ -256,9 +255,7 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;">In order to resol
         font-family: Arial ;
       }
     </style>
-      
 
-									</p>
 									</div>
 									<div class="modal-footer">
 									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -267,10 +264,14 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;">In order to resol
 								</div>
 							</div>
 							</div>
-									<button type="submit" name="sign_up" class="btn btn-default druu">Sign Up</button>
+							
+									
 								</div>
 							</div>
 						</form>
+						<div>
+								<button type="submit" name="sign_up" class="btn btn-default druu">Sign Up</button>
+							</div>
 
 						<?php include( 'user_insert.php' ); ?>
 
