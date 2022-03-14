@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 27, 2022 at 08:58 AM
+-- Generation Time: Mar 13, 2022 at 04:12 PM
 -- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.27
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -45,7 +45,8 @@ INSERT INTO `comments` (`comment_id`, `post_id`, `user_id`, `comment`, `date`) V
 (13, 25, 39, 'hi', '2018-07-24 09:34:26'),
 (14, 25, 39, 'pozzzzzzzzzzzzz', '2018-07-24 09:39:49'),
 (15, 26, 39, 'select * from', '2018-07-24 09:41:04'),
-(16, 27, 42, 'adsasdad', '2018-11-17 12:42:43');
+(16, 27, 42, 'adsasdad', '2018-11-17 12:42:43'),
+(17, 127, 25, 'Wow', '2022-03-02 05:32:43');
 
 -- --------------------------------------------------------
 
@@ -86,6 +87,25 @@ INSERT INTO `messages` (`msg_id`, `parrent_msg_id`, `sender`, `receiver`, `msg_s
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `plants`
+--
+
+CREATE TABLE `plants` (
+  `plant_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `plant_title` text NOT NULL,
+  `plant_content` text NOT NULL,
+  `plant_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `plant_water` text NOT NULL,
+  `plant_watered` text NOT NULL,
+  `plant_soil` text NOT NULL,
+  `plant_sun` text NOT NULL,
+  `plant_plant` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `posts`
 --
 
@@ -108,7 +128,10 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`post_id`, `user_id`, `topic_id`, `post_title`, `post_content`, `post_date`, `post_water`, `post_watered`, `post_soil`, `post_sun`, `post_plant`) VALUES
-(127, 22, 6, 'asdasd', 'sasdasda', '2022-02-27 07:43:18', '23', 'last year', 'Damp', 'Direct Sunlight', 'AAV ? (1).png');
+(127, 22, 6, 'asdasd', 'sasdasda', '2022-02-27 07:43:18', '23', 'last year', 'Damp', 'Direct Sunlight', 'AAV ? (1).png'),
+(128, 25, 6, 'asdsdd', 'haha', '2022-03-02 05:54:32', '3', 'Tuesday', 'Damp', 'Direct Sunlight', 'Screenshot (137).png'),
+(129, 51, 8, 'Cactus', 'henlo', '2022-03-02 06:11:49', '3', '2022-03-02', 'Not Damp', 'Direct Sunlight', 'Screenshot (16).png'),
+(160, 51, 8, 'asdsadsad', 'asdasdasd', '2022-03-13 14:09:05', '2', '2022-03-03', 'Not Damp', 'Direct Sunlight', '275628822_4756906474437315_7523258931607563897_n.jpg');
 
 -- --------------------------------------------------------
 
@@ -126,9 +149,9 @@ CREATE TABLE `topics` (
 --
 
 INSERT INTO `topics` (`topic_id`, `topic_title`) VALUES
-(6, 'PHP\r\n'),
-(7, 'MySQL'),
-(8, 'JavaScript');
+(6, 'Show & Tell'),
+(7, 'Question & Answer'),
+(8, 'Buy & Sell');
 
 -- --------------------------------------------------------
 
@@ -186,7 +209,10 @@ INSERT INTO `users` (`user_id`, `user_name`, `user_pass`, `user_email`, `user_co
 (47, 'ubong', 'ubongetuk', 'ubetuk82@gmail.com', 'United Kingdom', 'Male', '1987-02-23', 'default.jpg', '2019-02-25', '2019-02-25', 'unverified', 114464420, 'No', 'subscriber'),
 (48, 'test2', 'test2test2', 'test2@test2.com', 'United States', 'Male', '1985-05-05', 'default.jpg', '2019-02-28', '2019-02-28', 'unverified', 1125133362, 'No', 'subscriber'),
 (49, 'Tihomir', 'tisho1986', 'tihomir.rankov@gmail.com', 'United Kingdom', 'Male', '1984-12-05', 'default.jpg', '2019-02-28', '2019-02-28', 'verified', 954346384, 'Yes', 'subscriber'),
-(50, 'Allan Andrew Villanueva', 'andrew123', 'allanandrew.villanueva@gmail.com', '', 'Male', '2022-02-02', '501.png.png', '2022-02-21', '2022-02-21', 'unverified', 1491603715, 'Yes', '');
+(50, 'Allan Andrew Villanueva', 'andrew123', 'allanandrew.villanueva@gmail.com', '', 'Male', '2022-02-02', '501.png.png', '2022-02-21', '2022-02-21', 'unverified', 1491603715, 'Yes', ''),
+(51, 'John Louis Mariano', 'whoareyou', 'johnlouisxd@gmail.com', '', 'Male', '2000-02-25', '51FAsUn3HVgAkyho4.jpg', '2022-03-02', '2022-03-02', 'verified ', 10399465, 'Yes', 'subscriber'),
+(52, 'asdasd', 'sdfasdasdasd', 'jhnlsmrn@gmail.com', '', 'Male', '0000-00-00', 'default.jpg', '2022-03-11', '2022-03-11', 'unverified', 748060549, 'No', 'subscriber'),
+(53, 'dfghdsgd', 'sdfssdfgd', 'jjjjj@gmail.com', '', 'Female', '0000-00-00', 'default.jpg', '2022-03-11', '2022-03-11', 'unverified', 233860268, 'No', 'subscriber');
 
 --
 -- Indexes for dumped tables
@@ -203,6 +229,12 @@ ALTER TABLE `comments`
 --
 ALTER TABLE `messages`
   ADD PRIMARY KEY (`msg_id`);
+
+--
+-- Indexes for table `plants`
+--
+ALTER TABLE `plants`
+  ADD PRIMARY KEY (`plant_id`);
 
 --
 -- Indexes for table `posts`
@@ -230,7 +262,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `messages`
@@ -239,10 +271,16 @@ ALTER TABLE `messages`
   MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
+-- AUTO_INCREMENT for table `plants`
+--
+ALTER TABLE `plants`
+  MODIFY `plant_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=164;
 
 --
 -- AUTO_INCREMENT for table `topics`
@@ -254,7 +292,7 @@ ALTER TABLE `topics`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -219,7 +219,7 @@ function single_post() {
 		$output  .= "</div>";
 		$output  .= "<div class='form-group'>";
 		$output  .= "<div class='col-sm-12'>";
-		$output  .= "<input type='submit' name='reply' class='btn btn-success pull-right' value='Reply'>";
+		$output  .= "<input type='submit' name='reply' class='btn pull-right andruu' value='Reply'>";
 		$output  .= "</div>";
 		$output  .= "</div>";
 		$output  .= "</form>";						
@@ -560,6 +560,71 @@ function user_profile() {
 
 	new_members();
 
+
+}
+
+function user_plants() {
+
+	global $connection;
+
+	if ( isset( $_GET['u_id'] ) ) {
+		$u_id = $_GET['u_id'];
+	}
+
+	$get_plants  = "SELECT * from plants where user_id='$u_id' ORDER by 1 DESC";
+	$run_plants  = mysqli_query( $connection, $get_plants );
+
+	while ( $row_posts = mysqli_fetch_array( $run_plants ) ) {
+		
+		$plant_id = $row_posts['plant_id'];
+		$user_id = $row_posts['user_id'];
+		$post_title = $row_posts['plant_title'];
+		$water = $row_posts['plant_water'];
+		$watered = $row_posts['plant_watered'];
+		$soil = $row_posts['plant_soil'];
+		$sun = $row_posts['plant_sun'];
+		$content = $row_posts['plant_content'];
+		$plant = $row_posts['plant_plant'];
+		$plant_date = $row_posts['plant_date'];
+		$plantdate = date('F j, Y h:ia', strtotime($plant_date));
+
+		// getting the user who has posted the thread
+		$user = "SELECT * from users where user_id='$user_id' AND posts='yes'";
+
+		$run_user = mysqli_query( $connection, $user );
+		$row_user = mysqli_fetch_array( $run_user );
+		$user_name = $row_user['user_name'];
+		$user_image = $row_user['user_image'];
+
+		// now displaying all at once
+		$output   = "<div class='panel panel-default'>";
+		$output  .= "<div class='panel-body'>";
+		$output  .= "<div class='col-sm-2'>";
+		$output  .= "<img src='user/user_images/$user_image' class='img-responsive'  style='width:100px;height:100px;object-fit:cover;'>";
+		$output  .= "</div>";
+		$output  .= "<div class='col-sm-10'>";
+		$output  .= "<ol class='breadcrumb'>";
+		$output  .= "<li><a class='druu' href='user_profile.php?u_id=$user_id'>$user_name</a></li>";
+		$output  .= "<li>$plantdate</li>";
+		$output  .= "</ol>";
+		$output  .= "<h3>Species: $post_title</h3>";
+		$output  .= "<p>Watered every: $water times a day</p>";
+		$output  .= "<p>Last watered: $watered</p>";
+		$output  .= "<p>Soil should be: $soil</p>";
+		$output  .= "<p>Sunlight: $sun</p>";
+		$output  .= "<p>Description: $content</p>";
+		$output .= "<img src='user/user_images/$plant' class='img-responsive'> <br/>";
+		$output  .= "<div class='btn-group'>";
+		$output  .= "<a href='edit_plant.php?plant_id=$plant_id' class='btn andruu'>Edit</a>";
+		$output  .= "<a href='functions/delete_plant.php?plant_id=$plant_id' class='btn andruu'>Delete</a>";
+		$output  .= "</div>";
+		$output  .= "</div>";
+		$output  .= "</div>";
+		$output  .= "</div>";
+
+		echo $output;
+
+	}
 
 }
 
