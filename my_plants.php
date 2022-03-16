@@ -11,10 +11,9 @@
 		include ( "header.php" );
 		include ( "user_sidebar.php" );
 ?>
-
 		<div class="col-sm-9 homedruu">
-			<form action="home.php?id=<?php echo $user_id; ?>" method="post" class="form-horizontal" enctype="multipart/form-data">
-				<h3>Anything sprouting today? Let's discuss!</h3>
+			<form action="my_plants.php?u_id=<?php echo $user_id; ?>" method="post" class="form-horizontal" enctype="multipart/form-data">
+				<h2>Add Your Plants</h2>
 				<div class="form-group">
 					<div class="col-sm-12">
 						<input type="text" name="title" class="form-control" placeholder="Species" required>
@@ -65,15 +64,7 @@
 				</div>
 				<div class="form-group">
 					<div class="col-sm-12">
-						<select name="topic" class="form-control">
-							<option disabled selected value="">Select a topic</option>
-							<?php getTopics(); ?>
-						</select>
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="col-sm-12">
-						<input type="submit" name="sub" class="btn pull-right andruu" value="Post">
+						<input type="submit" name="subplant" class="btn pull-right andruu" value="Post">
 					</div>
 				</div>	
 			</form>
@@ -82,7 +73,7 @@
 				global $connection;
 				global $user_id;
 			
-				if ( isset( $_POST['sub'] ) ) {
+				if ( isset( $_POST['subplant'] ) ) {
 			
 					$title 		= addslashes( $_POST['title'] );
 					$water		= addslashes( $_POST['water'] );
@@ -90,7 +81,6 @@
 					$soil		= addslashes( $_POST['soil'] );
 					$sun		= addslashes( $_POST['sun'] );
 					$content 	= addslashes( $_POST['content'] );
-					$topic 		= $_POST['topic'];
 
 					$plant = $_FILES['plant']['name'];
 
@@ -105,14 +95,12 @@
 			
 					}else {
 						
-						$insert 	= "INSERT into posts(user_id,topic_id,post_title, post_water, post_watered, post_soil, post_sun, post_content, post_plant, post_date) values('$user_id','$topic','$title','$water', '$watered', '$soil', '$sun', '$content','$plant',NOW())";
+						$insert 	= "INSERT into plants(user_id,plant_title, plant_water, plant_watered, plant_soil, plant_sun, plant_content, plant_plant, plant_date) values('$user_id','$title','$water', '$watered', '$soil', '$sun', '$content','$plant',NOW())";
 			
 			
 						$run 		= mysqli_query( $connection, $insert );
 			
 						if ( $run ) {
-			
-							echo "<h3>Posted to timeline, looks great.</h3>";
 			
 							$update = "UPDATE users set posts='Yes' where user_id='$user_id'";
 							$run_update = mysqli_query( $connection, $update );
@@ -124,11 +112,13 @@
 				}
 			
 		?>
-			<div id="posts">
-				<h3>Recent Posts</h3>
-				<?php get_posts(); ?>
+            <br>
+			<div id="plants">
+				<h3>My Plants</h3>
+				<?php user_plants(); ?>
 			</div>
 	</div>
+
 
 <?php 
 

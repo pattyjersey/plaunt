@@ -12,7 +12,7 @@
 		include ( "user_sidebar.php" );
 ?>
 		<div class="col-sm-9">
-			<h2>Your result is here:</h2>
+			<h2>Search results</h2>
 			<?php GetResults(); ?>
 		</div>
 
