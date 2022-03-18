@@ -54,7 +54,7 @@
 					<img src="user/user_images/<?php echo $user_image; ?>" class="img-responsive" style="width:100px;height:100px;object-fit:cover;">
 				</div>
 			</div>
-			<div class="alert alert-success" role="alert"><?php echo $user_name; ?> is member of this site since: <?php echo $reg_date; ?></div>
+			<div class="alert alert-success" role="alert"><?php echo $user_name; ?> is member of Plaunt since: <?php echo $reg_date; ?></div>
 
 			<?php 
 
@@ -72,7 +72,7 @@
 						echo "<h2>Message was sent to $user_name successfully</h2>";
 
 					}else {
-						echo "<h2>Message was not sent to $user_name successfully</h2>";									
+						echo "<h2>Message failure. Please try again later. </h2>";									
 					}
 
 				}
