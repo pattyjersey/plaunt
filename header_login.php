@@ -34,7 +34,7 @@
 								<span class="icon-bar"></span>
 							</button>
 							<img src="assets/images/plauntlogo.png" alt="logo" class="img-fluid druu"></a>
-							<a class="navbar-brand" href="index.php">PLAUNT</a>
+							<a class="navbar-brand" href="#">PLAUNT</a>
 						</div>
 				
 						<!-- Collect the nav links, forms, and other content for toggling -->
