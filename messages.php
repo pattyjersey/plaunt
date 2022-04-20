@@ -45,7 +45,7 @@
 				</div>
 				<div class="form-group">
 					<div class="col-sm-12">
-						<input type="submit" name="message" class="btn btn-success pull-right andruu" value="Send">
+						<input type="submit" name="messages" class="btn btn-success pull-right andruu" value="Send">
 					</div>
 				</div>
 			</form>
@@ -58,12 +58,12 @@
 
 			<?php 
 
-				if ( isset( $_POST['message'] ) ) {
+				if ( isset( $_POST['messages'] ) ) {
 
 					$msg_title = $_POST['msg_title'];
 					$msg = $_POST['msg'];
 
-					$insert = "INSERT into messages(sender,receiver,msg_sub,msg_topic,reply,status,msg_type,msg_date) values('$user_id','$u_id','$msg_title','$msg','no_reply','unread','parent',NOW())";
+					$insert = "INSERT IGNORE into messages(sender,receiver,msg_sub,msg_topic,reply,status,msg_type,msg_date) values('$user_id','$u_id','$msg_title','$msg','no_reply','unread','parent',NOW())";
 
 					$run_insert = mysqli_query( $connection, $insert );
 

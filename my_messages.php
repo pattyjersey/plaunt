@@ -108,7 +108,7 @@
 						$reply_status = "read";
 						$reply_msg_type = "reply";
 
-						$insert_reply_msg = "INSERT into messages(parrent_msg_id,sender,receiver,reply,status,msg_type,msg_date) values('$get_id','$reply_sender','$reply_receiver','$user_reply','read','reply',NOW())";
+						$insert_reply_msg = "INSERT IGNORE into messages(parrent_msg_id,sender,receiver,reply,status,msg_type,msg_date) values('$get_id','$reply_sender','$reply_receiver','$user_reply','read','reply',NOW())";
 						$run_update = mysqli_query( $connection, $insert_reply_msg);
 
 					}
