@@ -12,7 +12,7 @@
 		include ( "user_sidebar.php" );
 ?>
 
-		<div class="col-sm-9 homedruu">
+		<div class="col-sm-9 home">
 			<form action="home.php?id=<?php echo $user_id; ?>" method="post" class="form-horizontal" enctype="multipart/form-data">
 				<h3>Anything sprouting today? Let's discuss!</h3>
 				<div class="form-group">

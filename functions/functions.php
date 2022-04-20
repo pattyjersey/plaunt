@@ -441,7 +441,7 @@ function user_posts() {
 	}
 
 }
-// try drew get user posts
+// trying to get user posts
 function get_user_posts() {
 
 	global $connection;
