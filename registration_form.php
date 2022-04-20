@@ -2,7 +2,6 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-5 text-center side">
-					<!-- <h1>Mama mo Plaunt!</h1> -->
 						<img src="assets/images/1.png" class="img-responsive inline-block" alt="">
 					</div>
 					<div class="col-sm-6 side2">
@@ -10,7 +9,7 @@
 							<div class="form-group">
 								<div class="col-sm-offset-2 col-sm-8">
 									<h1 class="text-center">Sign Up</h1>
-									<p>Join us and share your thoughts!</p>
+									<p>Join our community, and showcase or track your plants!</p>
 								</div>
 							</div>
 							<div class="form-group">

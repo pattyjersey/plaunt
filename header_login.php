@@ -6,6 +6,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>PLAUNT</title>
+		<link rel="icon" class="fabi" href="assets/images/plauntlogo.png" type = "image/x-icon">
 
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="assets/css/bootstrap.css">
@@ -32,7 +33,8 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>
-							<a class="navbar-brand" href="#">PLAUNT</a>
+							<img src="assets/images/plauntlogo.png" alt="logo" class="img-fluid druu"></a>
+							<a class="navbar-brand" href="index.php">PLAUNT</a>
 						</div>
 				
 						<!-- Collect the nav links, forms, and other content for toggling -->

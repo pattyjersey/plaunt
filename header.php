@@ -6,6 +6,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Plaunt</title>
+		<link rel="icon" class="fabi" href="assets/images/plauntlogo.png" type = "image/x-icon">
 
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="assets/css/bootstrap.css">
@@ -25,14 +26,16 @@
 				<div class="container">
 					<div class="row">
 						<!-- Brand and toggle get grouped for better mobile display -->
+						<img src="assets/images/plauntlogo.png" alt="logo" class="img-fluid druu" width="70px" height="70px" href="index.php"></a>
+							<a class="navbar-brand" href="index.php">PLAUNT</a>
 						<div class="navbar-header">
 							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
 								<span class="sr-only">Toggle navigation</span>
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
 							</button>
-							<a class="navbar-brand" href="index.php">PLAUNT</a>
 						</div>
 				
 						<!-- Collect the nav links, forms, and other content for toggling -->
@@ -67,6 +70,7 @@
 										?>										
 					        		</ul>
 					        	</li>
+					        	<li><a href="help.php">Help</a></li>
 					     	</ul>
 						</div><!-- /.navbar-collapse -->
 					</div>

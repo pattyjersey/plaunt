@@ -13,7 +13,7 @@
 ?>
 		<div class="col-sm-9 homedruu">
 			<form action="my_plants.php?u_id=<?php echo $user_id; ?>" method="post" class="form-horizontal" enctype="multipart/form-data">
-				<h2>Add Your Plants</h2>
+				<h3>Add and track your plants!</h3>
 				<div class="form-group">
 					<div class="col-sm-12">
 						<input type="text" name="title" class="form-control" placeholder="Species" required>
@@ -36,8 +36,11 @@
 						<div class="col-sm-13">
 							<select type="text" name="soil" class="form-control" required>
   								<option disabled selected>Soil type</option>
-  								<option value="Damp">Damp</option>
-  								<option value="Not Damp">Not Damp</option>
+  								<option value="Loam">Loam</option>
+  						<option value="Clay soil">Clay soil</option>
+  						<option value="Sandy soil">Sandy soil</option>
+  						<option value="Silty soil">Silty soil</option>
+  						<option value="Other">Other</option>
 							</select>
 						</div>
 					</div>

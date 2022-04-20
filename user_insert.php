@@ -34,10 +34,10 @@ if ( isset( $_POST['sign_up'] ) ) {
 
 			if ( $run_insert ) {
 
-				echo "<div class='alert alert-success'>Hi $name, registration is almost complete. We have send an email to $email, please check your inbox or spam folder.</div>";
+				echo "<div class='alert alert-success'>Hi $name, registration is almost complete. <br> We have send an email to $email, please check your inbox or spam folder.</div>";
 
 			}else {
-				echo "User was not inserted";
+				echo "User cannot be registered at this time. Please try again later";
 			}
 
 	}

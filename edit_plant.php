@@ -54,9 +54,12 @@
 				<div class="form-group">
 					<div class="col-sm-12">
 					<select name="soil" type="text" class="form-control" value="<?php echo $plant_soil; ?>">
-  						<option disabled selected>Soil type</option>
-  						<option value="1">Damp</option>
-  						<option value="2">Not damp</option>
+					<option disabled selected>Soil type</option>
+  						<option value="Loam">Loam</option>
+  						<option value="Clay soil">Clay soil</option>
+  						<option value="Sandy soil">Sandy soil</option>
+  						<option value="Silty soil">Silty soil</option>
+  						<option value="Other">Other</option>
 					</select>
 					</div>
 				</div>

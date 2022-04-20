@@ -37,8 +37,11 @@
 						<div class="col-sm-13">
 							<select type="text" name="soil" class="form-control" required>
   								<option disabled selected>Soil type</option>
-  								<option value="Damp">Damp</option>
-  								<option value="Not Damp">Not Damp</option>
+  								<option value="Loam">Loam</option>
+  								<option value="Clay soil">Clay soil</option>
+  								<option value="Sandy soil">Sandy soil</option>
+  								<option value="Silty soil">Silty soil</option>
+  								<option value="Other">Other</option>
 							</select>
 						</div>
 					</div>

@@ -34,32 +34,42 @@
 				}
 
 			?>
+			
 			<form method="post" class="form-horizontal" enctype="multipart/form-data"> 
 				<h2>Edit your post</h2>
+				
+				Species:
 				<div class="form-group">
 					<div class="col-sm-12">
 						<input type="text" name="title" class="form-control" value="<?php echo $post_title; ?>">
 					</div>
 				</div>
+				How many times a day should it be watered:
 				<div class="form-group">
 					<div class="col-sm-12">
 						<input type="number" name="water" class="form-control" value="<?php echo $post_water; ?>">
 					</div>
 				</div>
+				Last watered:
 				<div class="form-group">
 					<div class="col-sm-12">
 						<input type="text" name="watered" class="form-control" value="<?php echo $post_watered; ?>" onfocus="(this.type='date')" onblur="(this.type='text')">
 					</div>
 				</div>
+				Soil type:
 				<div class="form-group">
 					<div class="col-sm-12">
 					<select name="soil" type="text" class="form-control" value="<?php echo $post_soil; ?>">
   						<option disabled selected>Soil type</option>
-  						<option value="1">Damp</option>
-  						<option value="2">Not damp</option>
+  						<option value="Loam">Loam</option>
+  						<option value="Clay soil">Clay soil</option>
+  						<option value="Sandy soil">Sandy soil</option>
+  						<option value="Silty soil">Silty soil</option>
+  						<option value="Other">Other</option>
 					</select>
 					</div>
 				</div>
+				Sunlight:
 				<div class="form-group">
 					<div class="col-sm-12">
 					<select name="sun" type="text" class="form-control" value="<?php echo $post_sun; ?>">
@@ -69,6 +79,7 @@
 					</select>
 					</div>
 				</div>
+				Description:
 				<div class="form-group">
 					<div class="col-sm-12">
 						<textarea name="content" class="form-control" cols="30" rows="10"><?php echo $post_content; ?></textarea>
@@ -90,7 +101,7 @@
 				</div>
 				<div class="form-group">
 					<div class="col-sm-12">
-						<input type="submit" name="sub" class="btn pull-right andruu" value=" Update Post">
+						<input type="submit" name="update" class="btn pull-right andruu" value=" Update Post">
 					</div>
 				</div>	
 			</form>
