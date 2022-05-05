@@ -36,10 +36,14 @@
 				<div class="form-group">
 					<label for="u_gender" class="col-sm-2">Gender:</label>
 					<div class="col-sm-10">
-						<select name="u_gender" class="form-control" disabled="disabled">
-						  <option><?php echo $user_gender; ?></option>
+						<select name="u_gender" class="form-control">
+  						<option> <?php echo $user_gender; ?> </option>
 						  <option value="Male">Male</option>
 						  <option value="Female">Female</option>
+						  <option value="Non-binary">Non-binary</option>
+						  <option value="Transgender">Transgender</option>
+						  <option value="Intersex">Intersex</option>
+						  <option value="I prefer not to say">I prefer not to say</option>
 						</select>
 					</div>
 				</div>
@@ -63,6 +67,7 @@
 					$name = $_POST['u_name'];
 					$u_pass = $_POST['u_pass'];
 					//$u_email = $_POST['u_email'];
+					$u_gender = $_POST['u_gender'];
 					$u_image  = $_FILES['u_image']['name'];
 					$u_image  = $user_id.$u_image;
 					
@@ -70,7 +75,7 @@
 
 					move_uploaded_file( $image_tmp, "user/user_images/$u_image" );
 
-					$update = "UPDATE users set user_name='$name',user_pass='$u_pass',user_image='$u_image' where user_id='$user_id'";
+					$update = "UPDATE users set user_name='$name',user_pass='$u_pass', user_gender='$u_gender', user_image='$u_image' where user_id='$user_id'";
 					$run = mysqli_query( $connection, $update );
 
 					if ( $run ) {

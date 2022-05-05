@@ -91,6 +91,8 @@ function get_posts() {
 		$watered = $row_posts['post_watered'];
 		$soil = $row_posts['post_soil'];
 		$sun = $row_posts['post_sun'];
+		$temperature = $row_posts['post_temperature'];
+		$requiredtime = $row_posts['post_required'];
 		$content = $row_posts['post_content'];
 		$plant = $row_posts['post_plant'];
 		$post_date = $row_posts['post_date'];
@@ -115,12 +117,14 @@ function get_posts() {
 		$output  .= "<li><a class='druu' href='user_profile.php?u_id=$user_id'>$user_name</a></li>";
 		$output  .= "<li>$postdate</li>";
 		$output  .= "</ol>";
-		$output  .= "<h3>Species: $post_title</h3>";
-		$output  .= "<p><b>Watered every:</b> $water times a day</p>";
+		$output  .= "<h3><b>Species:</b> $post_title</h3>";
+		$output  .= "<p><b>Watered every:</b> $water</p>";
 		$output  .= "<p><b>Last watered:</b> $watered</p>";
 		$output  .= "<p><b>Soil should be:</b> $soil</p>";
 		$output  .= "<p><b>Sunlight:</b> $sun</p>";
-		$output  .= "<p><b>Suggestion:</b> $content</p>";
+		$output  .= "<p><b>Time for corresponding sunlight:</b> $requiredtime</p>";
+		$output  .= "<p><b>Temperature:</b> $temperature</p>";
+		$output  .= "<p><b>Description:</b> $content</p>";
 		$output  .= "<img src='user/user_images/$plant' class='img-responsive maxwidth'> <br/>";
 		$output  .= "<a href='single.php?post_id=$post_id' class='btn andruu'>Open Post</a>";
 		$output  .= "</div>";
@@ -156,6 +160,8 @@ function single_post() {
 		$watered = $row_posts['post_watered'];
 		$soil = $row_posts['post_soil'];
 		$sun = $row_posts['post_sun'];
+		$temperature = $row_posts['post_temperature'];
+		$requiredtime = $row_posts['post_required'];
 		$content = $row_posts['post_content'];
 		$plant = $row_posts['post_plant'];
 		$post_date = $row_posts['post_date'];
@@ -168,6 +174,7 @@ function single_post() {
 		$row_user = mysqli_fetch_array( $run_user );
 		$user_name = $row_user['user_name'];
 		$user_image = $row_user['user_image'];
+		$posted_user = $row_user['user_id'];
 
 		// now displaying the post
 		$output   = "<div class='panel panel-default'>";
@@ -180,12 +187,14 @@ function single_post() {
 		$output  .= "<li><a class='druu' href='user_profile.php?u_id=$user_id'>$user_name</a></li>";
 		$output  .= "<li>$postdate</li>";
 		$output  .= "</ol>";
-		$output  .= "<h3>Species:</b> $post_title</h3>";
-		$output  .= "<p><b>Watered every:</b> $water times a day</p>";
+		$output  .= "<h3><b>Species:</b> $post_title</h3>";
+		$output  .= "<p><b>Watered every:</b> $water </p>";
 		$output  .= "<p><b>Last watered:</b> $watered</p>";
 		$output  .= "<p><b>Soil should be:</b> $soil</p>";
 		$output  .= "<p><b>Sunlight:</b> $sun</p>";
-		$output  .= "<p><b>Suggestion:</b> $content</p>";
+		$output  .= "<p><b>Time for corresponding sunlight:</b> $requiredtime</p>";
+		$output  .= "<p><b>Temperature:</b> $temperature</p>";
+		$output  .= "<p><b>Description:</b> $content</p>";
 		$output  .= "<img src='user/user_images/$plant' class='img-responsive maxwidth'>";
 		$output  .= "</div>";
 		$output  .= "</div>";
@@ -203,7 +212,7 @@ function single_post() {
 			$current_user_row = mysqli_fetch_array( $run_current_user );
 			$current_user_id = $current_user_row['user_id'];
 
-			$insert = "INSERT into comments (post_id, user_id,comment,date) values('$post_id','$current_user_id','$comment',NOW())";
+			$insert = "INSERT into comments (post_id, user_id, parent_user_id, comment,cm_status,date) values('$post_id','$current_user_id', '$posted_user', '$comment','Unread',NOW())";
 			$run = mysqli_query( $connection, $insert );
 
 			echo "<h2>Your reply was added!</h2>";
@@ -262,6 +271,8 @@ function get_cats() {
 		$watered = $row_posts['post_watered'];
 		$soil = $row_posts['post_soil'];
 		$sun = $row_posts['post_sun'];
+		$temperature = $row_posts['post_temperature'];
+		$requiredtime = $row_posts['post_required'];
 		$content = $row_posts['post_content'];
 		$plant = $row_posts['post_plant'];
 		$post_date = $row_posts['post_date'];
@@ -286,13 +297,15 @@ function get_cats() {
 		$output  .= "<li><a class='druu' href='user_profile.php?user_id=$user_id'>$user_name</a></li>";
 		$output  .= "<li>$postdate</li>";
 		$output  .= "</ol>";
-		$output  .= "<h3>Species: $post_title</h3>";
-		$output  .= "<p>Watered every: $water times a day</p>";
-		$output  .= "<p>Last watered: $watered</p>";
-		$output  .= "<p>Soil should be: $soil</p>";
-		$output  .= "<p>Sunlight: $sun</p>";
-		$output  .= "<p>Suggestion: $content</p>";
-		$output .= "<img src='user/user_images/$plant' class='img-responsive'> <br/>";
+		$output  .= "<h3><b>Species:</b> $post_title</h3>";
+		$output  .= "<p><b>Watered every:</b> $water </p>";
+		$output  .= "<p><b>Last watered:</b> $watered</p>";
+		$output  .= "<p><b>Soil should be:</b> $soil</p>";
+		$output  .= "<p><b>Sunlight:</b> $sun</p>";
+		$output  .= "<p><b>Time for corresponding sunlight:</b> $requiredtime</p>";
+		$output  .= "<p><b>Temperature:</b> $temperature</p>";
+		$output  .= "<p><b>Description:</b> $content</p>";
+		$output .= "<img src='user/user_images/$plant' class='img-responsive maxwidth'> <br/>";
 		$output  .= "<a href='single.php?post_id=$post_id' class='btn btn-success andruu'>Open Post</a>";
 		$output  .= "</div>";
 		$output  .= "</div>";
@@ -315,7 +328,7 @@ function GetResults() {
 
 	$get_posts  = "SELECT * from posts where post_title like '%$search_term%' ORDER by 1 DESC";
 	$run_posts  = mysqli_query( $connection, $get_posts );
-
+	
 	$count_result = mysqli_num_rows( $run_posts );
 
 	if ( $count_result == 0 ) {
@@ -332,6 +345,8 @@ function GetResults() {
 		$watered = $row_posts['post_watered'];
 		$soil = $row_posts['post_soil'];
 		$sun = $row_posts['post_sun'];
+		$temperature = $row_posts['post_temperature'];
+		$requiredtime = $row_posts['post_required'];
 		$content = $row_posts['post_content'];
 		$plant = $row_posts['post_plant'];
 		$post_date = $row_posts['post_date'];
@@ -346,6 +361,7 @@ function GetResults() {
 		$user_image = $row_user['user_image'];
 
 		// now displaying all at once
+		
 		$output   = "<div class='panel panel-default'>";
 		$output  .= "<div class='panel-body'>";
 		$output  .= "<div class='col-sm-2'>";
@@ -356,17 +372,20 @@ function GetResults() {
 		$output  .= "<li><a class='druu' href='user_profile.php?user_id=$user_id'>$user_name</a></li>";
 		$output  .= "<li>$postdate</li>";
 		$output  .= "</ol>";
-		$output  .= "<h3>Species: $post_title</h3>";
-		$output  .= "<p>Watered every: $water times a day</p>";
-		$output  .= "<p>Last watered: $watered</p>";
-		$output  .= "<p>Soil should be: $soil</p>";
-		$output  .= "<p>Sunlight: $sun</p>";
-		$output  .= "<p>Suggestion: $content</p>";
+		$output  .= "<h3><b>Species:</b> $post_title</h3>";
+		$output  .= "<p><b>Watered every:</b> $water </p>";
+		$output  .= "<p><b>Last watered:</b> $watered</p>";
+		$output  .= "<p><b>Soil should be:</b> $soil</p>";
+		$output  .= "<p><b>Sunlight:</b> $sun</p>";
+		$output  .= "<p><b>Time for corresponding sunlight:</b> $requiredtime</p>";
+		$output  .= "<p><b>Temperature:</b> $temperature</p>";
+		$output  .= "<p><b>Description:</b> $content</p>";
 		$output .= "<img src='user/user_images/$plant' class='img-responsive'> <br/>";
 		$output  .= "<a href='single.php?post_id=$post_id' class='btn btn-success andruu'>Open Post</a>";
 		$output  .= "</div>";
 		$output  .= "</div>";
 		$output  .= "</div>";
+		
 
 		echo $output;
 
@@ -374,6 +393,61 @@ function GetResults() {
 
 }
 
+// get the search result
+function GetUserResults() {
+
+	global $connection;
+
+	if ( isset( $_GET['user_query'] ) ) {
+		$search = $_GET['user_query'];
+	}
+
+	$get_posts  = "SELECT * from users where user_name like '%$search%' ORDER by 1 DESC";
+	$run_posts  = mysqli_query( $connection, $get_posts );
+	
+	$count_result = mysqli_num_rows( $run_posts );
+
+	if ( $count_result == 0 ) {
+		echo "<div class='alert alert-danger' role='alert'>Sorry, we do not have results for this keyword!</div>";
+		exit();
+	}
+
+	while ( $row_posts = mysqli_fetch_array( $run_posts ) ) {
+		
+	$user_id = $row_posts['user_id'];
+	$user_name = $row_posts['user_name'];
+	$user_image = $row_posts['user_image'];
+						
+
+		// getting the user who has posted the thread
+		$user = "SELECT * from users where user_id='$user_id'";
+
+		$run_user = mysqli_query( $connection, $user );
+		$row_user = mysqli_fetch_array( $run_user );
+		$user_name = $row_user['user_name'];
+		$user_image = $row_user['user_image'];
+
+		// now displaying all at once
+		
+		$output   = "<div class='panel panel-default'>";
+		$output  .= "<div class='panel-body'>";
+		$output  .= "<div class='col-sm-2'>";
+		$output  .= "<img src='user/user_images/$user_image' class='img-responsive'>";
+		$output  .= "</div>";
+		$output  .= "<div class='col-sm-10'>";
+		$output  .= "<ol class='breadcrumb'>";
+		$output  .= "<li><a class='druu' href='user_profile.php?user_id=$user_id'>$user_name</a></li>";
+
+		$output  .= "</div>";
+		$output  .= "</div>";
+		$output  .= "</div>";
+		
+
+		echo $output;
+
+	}
+
+}
 
 // function for displaying individual user posts 
 function user_posts() {
@@ -396,6 +470,8 @@ function user_posts() {
 		$watered = $row_posts['post_watered'];
 		$soil = $row_posts['post_soil'];
 		$sun = $row_posts['post_sun'];
+		$temperature = $row_posts['post_temperature'];
+		$requiredtime = $row_posts['post_required'];
 		$content = $row_posts['post_content'];
 		$plant = $row_posts['post_plant'];
 		$post_date = $row_posts['post_date'];
@@ -408,9 +484,16 @@ function user_posts() {
 		$row_user = mysqli_fetch_array( $run_user );
 		$user_name = $row_user['user_name'];
 		$user_image = $row_user['user_image'];
-
+		
+		//get if somebody commented
+		$user_comments = "SELECT  * from comments where parent_user_id='$user_id' AND post_id='$post_id' AND cm_status='Unread' order by 1 DESC";
+		$run_comments = mysqli_query( $connection, $user_comments );
+		$count_comments = mysqli_num_rows( $run_comments );
+		
+		if ($count_comments > 0) {
 		// now displaying all at once
 		$output   = "<div class='panel panel-default'>";
+		$output  .= "<sup> <span class='badge progress-bar-danger even-larger-badge pull-right'> $count_comments New Replies </span> </sup>";
 		$output  .= "<div class='panel-body'>";
 		$output  .= "<div class='col-sm-2'>";
 		$output  .= "<img src='user/user_images/$user_image' class='img-responsive'  style='width:100px;height:100px;object-fit:cover;'>";
@@ -420,13 +503,15 @@ function user_posts() {
 		$output  .= "<li><a class='druu' href='user_profile.php?u_id=$user_id'>$user_name</a></li>";
 		$output  .= "<li>$postdate</li>";
 		$output  .= "</ol>";
-		$output  .= "<h3>Species: $post_title</h3>";
-		$output  .= "<p>Watered every: $water times a day</p>";
-		$output  .= "<p>Last watered: $watered</p>";
-		$output  .= "<p>Soil should be: $soil</p>";
-		$output  .= "<p>Sunlight: $sun</p>";
-		$output  .= "<p>Suggestion: $content</p>";
-		$output .= "<img src='user/user_images/$plant' class='img-responsive'> <br/>";
+		$output  .= "<h3><b>Species:</b> $post_title</h3>";
+		$output  .= "<p><b>Watered every:</b> $water </p>";
+		$output  .= "<p><b>Last watered:</b> $watered</p>";
+		$output  .= "<p><b>Soil should be:</b> $soil</p>";
+		$output  .= "<p><b>Sunlight:</b> $sun</p>";
+		$output  .= "<p><b>Time for corresponding sunlight:</b> $requiredtime</p>";
+		$output  .= "<p><b>Temperature:</b> $temperature</p>";
+		$output  .= "<p><b>Description:</b> $content</p>";
+		$output  .= "<img src='user/user_images/$plant' class='img-responsive maxwidth'> <br/>";
 		$output  .= "<div class='btn-group'>";
 		$output  .= "<a href='single.php?post_id=$post_id' class='btn andruu'>View</a>";
 		$output  .= "<a href='edit_post.php?post_id=$post_id' class='btn andruu'>Edit</a>";
@@ -438,10 +523,41 @@ function user_posts() {
 
 		echo $output;
 
-	}
+	}else {
+	 	$output   = "<div class='panel panel-default'>";
+		$output  .= "<div class='panel-body'>";
+		$output  .= "<div class='col-sm-2'>";
+		$output  .= "<img src='user/user_images/$user_image' class='img-responsive'  style='width:100px;height:100px;object-fit:cover;'>";
+		$output  .= "</div>";
+		$output  .= "<div class='col-sm-10'>";
+		$output  .= "<ol class='breadcrumb'>";
+		$output  .= "<li><a class='druu' href='user_profile.php?u_id=$user_id'>$user_name</a></li>";
+		$output  .= "<li>$postdate</li>";
+		$output  .= "</ol>";
+		$output  .= "<h3><b>Species:</b> $post_title</h3>";
+		$output  .= "<p><b>Watered every:</b> $water </p>";
+		$output  .= "<p><b>Last watered:</b> $watered</p>";
+		$output  .= "<p><b>Soil should be:</b> $soil</p>";
+		$output  .= "<p><b>Sunlight:</b> $sun</p>";
+		$output  .= "<p><b>Time for corresponding sunlight:</b> $requiredtime</p>";
+		$output  .= "<p><b>Temperature:</b> $temperature</p>";
+		$output  .= "<p><b>Description:</b> $content</p>";
+		$output  .= "<img src='user/user_images/$plant' class='img-responsive maxwidth'> <br/>";
+		$output  .= "<div class='btn-group'>";
+		$output  .= "<a href='single.php?post_id=$post_id' class='btn andruu'>View</a>";
+		$output  .= "<a href='edit_post.php?post_id=$post_id' class='btn andruu'>Edit</a>";
+		$output  .= "<a href='functions/delete_post.php?post_id=$post_id' class='btn andruu'>Delete</a>";
+		$output  .= "</div>";
+		$output  .= "</div>";
+		$output  .= "</div>";
+		$output  .= "</div>";
 
+		echo $output;
+	    }
+    }
 }
-// trying to get user posts
+
+// try to get user posts
 function get_user_posts() {
 
 	global $connection;
@@ -462,6 +578,8 @@ function get_user_posts() {
 		$watered = $row_posts['post_watered'];
 		$soil = $row_posts['post_soil'];
 		$sun = $row_posts['post_sun'];
+		$temperature = $row_posts['post_temperature'];
+		$requiredtime = $row_posts['post_required'];
 		$content = $row_posts['post_content'];
 		$plant = $row_posts['post_plant'];
 		$post_date = $row_posts['post_date'];
@@ -485,12 +603,14 @@ function get_user_posts() {
 		$output  .= "<li><a href='user_profile.php?u_id=$user_id'>$user_name</a></li>";
 		$output  .= "<li>$post_date</li>";
 		$output  .= "</ol>";
-		$output  .= "<h3>Species: $post_title</h3>";
-		$output  .= "<p><b>Watered every: </b>$water times a day</p>";
+		$output  .= "<h3><b>Species:</b> $post_title</h3>";
+		$output  .= "<p><b>Watered every: </b>$water </p>";
 		$output  .= "<p><b>Last watered:</b> $watered</p>";
 		$output  .= "<p><b>Soil should be:</b> $soil</p>";
 		$output  .= "<p><b>Sunlight:</b> $sun</p>";
-		$output  .= "<p><b>Suggestion:</b> $content</p>";
+		$output  .= "<p><b>Time for corresponding sunlight:</b> $requiredtime</p>";
+		$output  .= "<p><b>Temperature:</b> $temperature</p>";
+		$output  .= "<p><b>Description:</b> $content</p>";
 		$output .= "<img src='user/user_images/$plant' class='img-responsive maxwidth'> <br/>";
 		$output  .= "<a href='single.php?post_id=$post_id' class='btn andruu'>View</a>";
 		$output  .= "<div class='btn-group'>";
@@ -583,6 +703,8 @@ function user_plants() {
 		$watered = $row_posts['plant_watered'];
 		$soil = $row_posts['plant_soil'];
 		$sun = $row_posts['plant_sun'];
+		$temperature = $row_posts['plant_temperature'];
+		$requiredtime = $row_posts['plant_required'];
 		$content = $row_posts['plant_content'];
 		$plant = $row_posts['plant_plant'];
 		$plant_date = $row_posts['plant_date'];
@@ -599,22 +721,20 @@ function user_plants() {
 		// now displaying all at once
 		$output   = "<div class='panel panel-default'>";
 		$output  .= "<div class='panel-body'>";
-		$output  .= "<div class='col-sm-2'>";
-		$output  .= "<img src='user/user_images/$user_image' class='img-responsive'  style='width:100px;height:100px;object-fit:cover;'>";
+		$output  .= "<div class='col-sm-1'>";
 		$output  .= "</div>";
 		$output  .= "<div class='col-sm-10'>";
 		$output  .= "<ol class='breadcrumb'>";
 		$output  .= "<li><a class='druu' href='user_profile.php?u_id=$user_id'>$user_name</a></li>";
 		$output  .= "<li>$plantdate</li>";
 		$output  .= "</ol>";
-		$output  .= "<h3>Species: $post_title</h3>";
-		$output  .= "<p>Watered every: $water times a day</p>";
-		$output  .= "<p>Last watered: $watered</p>";
-		$output  .= "<p>Soil should be: $soil</p>";
-		$output  .= "<p>Sunlight: $sun</p>";
-		$output  .= "<p>Description: $content</p>";
-		$output .= "<img src='user/user_images/$plant' class='img-responsive'> <br/>";
-		$output  .= "<div class='btn-group'>";
+	    $output   .= "<img src='user/user_images/$plant' class='img-responsive maxwidth'>";
+		$output   .= "<div class='card-body'>";
+		$output   .= "<h5 class='card-title'><h3><b>Species:</b> $post_title</h3></h5>";
+		$output   .= "<p><b>Description:</b> $content </p>";
+		$output   .= "<p><b>Watered every:</b> $water  &emsp;&emsp;&emsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&emsp;&emsp;&emsp;&nbsp; <b>Sunlight:</b> $sun </p>";
+        $output   .= "<p><b>Last watered:</b> $watered &emsp;&emsp;&emsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&emsp;&emsp;&emsp;&nbsp; <b>Time for corresponding sunlight:</b> $requiredtime</p>";
+        $output   .= "<p><b>Soil should be:</b> $soil&emsp;&emsp;&emsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; <b>Temperature:</b> $temperature</p>";
 		$output  .= "<a href='edit_plant.php?plant_id=$plant_id' class='btn andruu'>Edit</a>";
 		$output  .= "<a href='functions/delete_plant.php?plant_id=$plant_id' class='btn andruu'>Delete</a>";
 		$output  .= "</div>";

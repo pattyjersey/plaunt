@@ -1,0 +1,29 @@
+post table - post id,user id
+comments table - user id ng commentor, post id, comment status
+users -  user id
+
+commentorr
+poster
+status
+
+session user email = email
+
+while commentor is not equals to the poster,
+    {
+        wag mapalitan ung read
+    }
+
+		
+		$post_user = "SELECT * from posts where user_id='$user'";
+		
+		while ($user
+
+
+        		
+        if ($user == $get_poster) {
+        $update_unread = "UPDATE comments set cm_status='Read' where post_id='$get_id'";
+	    $run_unread = mysqli_query( $connection, $update_unread );
+	    
+        	
+	$get_posts  = "SELECT * from posts where user_id='$u_id' ORDER by 1 DESC";
+	$run_posts  = mysqli_query( $connection, $get_posts );

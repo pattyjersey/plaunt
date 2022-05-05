@@ -29,6 +29,8 @@
 					$post_watered = $row['post_watered'];
 					$post_soil = $row['post_soil'];
 					$post_sun = $row['post_sun'];
+					$post_required = $row['post_required'];
+					$post_temperature = $row['post_temperature'];
 					$post_content = $row['post_content'];
 					$post_plant = $row['post_plant'];
 				}
@@ -47,25 +49,35 @@
 				How many times a day should it be watered:
 				<div class="form-group">
 					<div class="col-sm-12">
-						<input type="number" name="water" class="form-control" value="<?php echo $post_water; ?>">
+						<select name="number" name="water" class="form-control" value="<?php echo $plant_water; ?>">
+                        <option disabled selected>How many times a day should it be watered</option>
+  								<option value="(1) Once">(1) Once</option>
+  								<option value="(2) Twice">(2) Twice</option>
+  								<option value="(3) Thric">(3) Thrice</option>
+  								<option value="More than 5">More than 5</option>
+   								<option value="Weekly">Weekly</option>
+  								<option value="Others">Others</option>
+  								<option value="Not sure">Not sure</option>
+							</select>
 					</div>
 				</div>
 				Last watered:
 				<div class="form-group">
 					<div class="col-sm-12">
-						<input type="text" name="watered" class="form-control" value="<?php echo $post_watered; ?>" onfocus="(this.type='date')" onblur="(this.type='text')">
+						<input type="text" name="watered" class="form-control" value="<?php echo $plant_watered; ?>" onfocus="(this.type='date')" min="2022-05-01" max="2022-05-31" onblur="(this.type='text')">
 					</div>
 				</div>
 				Soil type:
 				<div class="form-group">
 					<div class="col-sm-12">
 					<select name="soil" type="text" class="form-control" value="<?php echo $post_soil; ?>">
-  						<option disabled selected>Soil type</option>
-  						<option value="Loam">Loam</option>
-  						<option value="Clay soil">Clay soil</option>
-  						<option value="Sandy soil">Sandy soil</option>
-  						<option value="Silty soil">Silty soil</option>
-  						<option value="Other">Other</option>
+                    <option disabled selected>Soil type</option>
+  								<option value="Loam">Loam</option>
+  								<option value="Clay soil">Clay soil</option>
+  								<option value="Sandy soil">Sandy soil</option>
+  								<option value="Silty soil">Silty soil</option>
+  								<option value="Others">Others</option>
+   								<option value="Not sure">Not sure</option>
 					</select>
 					</div>
 				</div>
@@ -73,9 +85,37 @@
 				<div class="form-group">
 					<div class="col-sm-12">
 					<select name="sun" type="text" class="form-control" value="<?php echo $post_sun; ?>">
-  						<option disabled selected>Sunlight</option>
-  						<option value="1">Direct Sunlight</option>
-  						<option value="2">Indirect Sunlight</option>
+                    <option disabled selected>Sunlight</option>
+  								<option value="Direct Sunlight">Direct Sunlight</option>
+  								<option value="Indirect Sunlight">Indirect Sunlight</option>
+  								<option value="Others">Others</option>
+   								<option value="Not sure">Not sure</option>
+					</select>
+					</div>
+				</div>
+				Time for corresponding sunlight:
+				<div class="form-group">
+					<div class="col-sm-12">
+					<select name="requiredtime" type="text" class="form-control" value="<?php echo $plant_required; ?>">
+                    <option disabled selected>Time for corresponding sunlight</option>
+  								<option value="All day">All day</option>
+  								<option value="Morning">Morning</option>
+  								<option value="Afternoon">Afternoon</option>
+  								<option value="Night">Night</option>
+  								<option value="Others">Others</option>
+   								<option value="Not sure">Not sure</option>
+					</select>
+					</div>
+				</div>
+				Appropriate Temperature:
+				<div class="form-group">
+					<div class="col-sm-12">
+					<select name="temperature" type="text" class="form-control" value="<?php echo $plant_temperature; ?>">
+                    <option disabled selected>Appropriate Temperature</option>
+  								<option value="(15 - 24°) Indoor Plants">(15 - 24°) Indoor Plants</option>
+  								<option value="(24 - 45°C) Indoor and Outdoor Plants">(24 - 45°C) Indoor and Outdoor Plants</option>
+  								<option value="Others">Others</option>
+   								<option value="Not sure">Not sure</option>
 					</select>
 					</div>
 				</div>

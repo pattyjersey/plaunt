@@ -25,15 +25,17 @@
 			<nav class="navbar navbar-default druu" role="navigation">
 				<div class="container">
 					<div class="row">
-					<div class="navbar-header">
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<img src="assets/images/plauntlogo.png" alt="logo" class="img-fluid druu" width="70px" height="70px" href="index.php"></a>
+							<a class="navbar-brand" href="index.php">PLAUNT</a>
+						<div class="navbar-header">
 							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
 								<span class="sr-only">Toggle navigation</span>
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
 							</button>
-							<img src="assets/images/plauntlogo.png" alt="logo" class="img-fluid druu" height="50px" width="50px" ></a>
-							<a class="navbar-brand" href="index.php">PLAUNT</a>
 						</div>
 				
 						<!-- Collect the nav links, forms, and other content for toggling -->

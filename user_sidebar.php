@@ -16,9 +16,9 @@
 		$register_date  = $row['register_date'];
 		$last_login 	= $row['last_login'];
 
-		$user_posts = "SELECT  * from posts where user_id='$user_id'";
-		$run_posts = mysqli_query( $connection, $user_posts );
-		$posts = mysqli_num_rows( $run_posts );
+		$user_comments = "SELECT  * from comments where parent_user_id='$user_id' AND cm_status='Unread' order by 1 DESC";
+		$run_comments = mysqli_query( $connection, $user_comments );
+		$count_comments = mysqli_num_rows( $run_comments );
 
 		$user_plants = "SELECT  * from plants where user_id='$user_id'";
 		$run_plants = mysqli_query( $connection, $user_plants );
@@ -35,11 +35,17 @@
 	<img src="user/user_images/<?php echo $user_image; ?>" class="img-responsive prof" alt="Profile" style="width:300px !important;height:300px !important; object-fit:cover;">
 	<ul class="list-group">
 		<li class="list-group-item"><?php echo "<b>".$user_name."</b>"; ?></li>
-		<li class="list-group-item"><a class="druu" href="my_messages.php?inbox&u_id=<?php echo $user_id; ?>">Messages (<?php echo $count_msg; ?>)</a></li>
-		<li class="list-group-item"><a class="druu" href="my_plants.php?u_id=<?php echo $user_id; ?>">My Plants (<?php echo $plants; ?>)</a></li>
-		<li class="list-group-item"><a class="druu" href="my_posts.php?u_id=<?php echo $user_id; ?>"> My Posts (<?php echo $posts; ?>)</a></li>
+		<li class="list-group-item"><a class="druu" href="my_plants.php?u_id=<?php echo $user_id; ?>">My Plants <b> (<?php echo $plants; ?>)</b></a></li>
+		<li class="list-group-item"><a class="druu" href="my_messages.php?inbox&u_id=<?php echo $user_id; ?>">Messages <b> (<?php echo $count_msg; ?> Unread)</b> </a></li>
+		<li class="list-group-item"><a class="druu" href="my_posts.php?u_id=<?php echo $user_id; ?>"> My Posts <b> (<?php echo $count_comments; ?> New Comment/s) </b></a></li>
 		<li class="list-group-item"><a class="druu" href="edit_profile.php?u_id=<?php echo $user_id; ?>">Edit My Account</a></li>
 		<li class="list-group-item"><a class="druu" href="logout.php">Logout</a></li>
 	</ul>
 
+<a class="weatherwidget-io" href="https://forecast7.com/en/15d08120d62/pampanga/" data-label_1="PAMPANGA" data-label_2="WEATHER" data-theme="pure" >PAMPANGA WEATHER</a>
+<script>
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+</script>
+
 </div>
+

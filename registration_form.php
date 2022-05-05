@@ -9,7 +9,7 @@
 							<div class="form-group">
 								<div class="col-sm-offset-2 col-sm-8">
 									<h1 class="text-center">Sign Up</h1>
-									<p>Join our community, and showcase or track your plants!</p>
+									<p>Join our community, and showcase your plants!</p>
 								</div>
 							</div>
 							<div class="form-group">
@@ -38,6 +38,10 @@
 									  <option>---</option>
 									  <option value="Male">Male</option>
 									  <option value="Female">Female</option>
+									  <option value="Non-binary">Non-binary</option>
+									  <option value="Transgender">Transgender</option>
+									  <option value="Intersex">Intersex</option>
+									  <option value="I prefer not to say">I prefer not to say</option>
 									</select>
 								</div>
 							</div>

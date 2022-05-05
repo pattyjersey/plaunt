@@ -35,23 +35,23 @@
 			<form action="messages.php?u_id=<?php echo $u_id; ?>" method="POST" class="form-horizontal">
 				<div class="form-group">
 					<div class="col-sm-12">
-						<input type="text" name="msg_title" class="form-control" placeholder="Message Subject..." required>
+						<input type="text" name="msg_title" class="form-control" placeholder="Message Subject" required>
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="col-sm-12">
-						<textarea name="msg" class="form-control" cols="30" rows="10" placeholder="Message Topic" required></textarea>
+						<textarea name="msg" class="form-control" cols="30" rows="10" placeholder="Message..." required></textarea>
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="col-sm-12">
-						<input type="submit" name="messages" class="btn btn-success pull-right andruu" value="Send">
+						<input type="submit" name="messages" class="btn btn-success pull-right" value="Send">
 					</div>
 				</div>
 			</form>
 			<div class="row">
 				<div class="col-sm-2">
-					<img src="user/user_images/<?php echo $user_image; ?>" class="img-responsive" style="width:100px;height:100px;object-fit:cover;">
+					<img src="user/user_images/<?php echo $user_image; ?>" class="img-responsive">
 				</div>
 			</div>
 			<div class="alert alert-success" role="alert"><?php echo $user_name; ?> is member of Plaunt since: <?php echo $reg_date; ?></div>
@@ -63,13 +63,14 @@
 					$msg_title = $_POST['msg_title'];
 					$msg = $_POST['msg'];
 
-					$insert = "INSERT IGNORE into messages(sender,receiver,msg_sub,msg_topic,reply,status,msg_type,msg_date) values('$user_id','$u_id','$msg_title','$msg','no_reply','unread','parent',NOW())";
+					$insert = "INSERT IGNORE INTO messages (sender,receiver,msg_sub,msg_topic,reply,status,msg_type,msg_date) VALUES ('$user_id','$u_id','$msg_title','$msg','no_reply','unread','parent',NOW())";
 
-					$run_insert = mysqli_query( $connection, $insert );
+
+					$run_insert = mysqli_query($connection, $insert);
 
 					if ( $run_insert ) {
 
-						echo "<h2>Message was sent to $user_name successfully</h2>";
+						echo "<h2>Message was sent to $user_name successfully!</h2>";
 
 					}else {
 						echo "<h2>Message failure. Please try again later. </h2>";									

@@ -12,7 +12,7 @@
 		include ( "user_sidebar.php" );
 ?>
 
-		<div class="col-sm-9 home">
+		<div class="col-sm-9 homedruu">
 			<form action="home.php?id=<?php echo $user_id; ?>" method="post" class="form-horizontal" enctype="multipart/form-data">
 				<h3>Anything sprouting today? Let's discuss!</h3>
 				<div class="form-group">
@@ -23,25 +23,15 @@
 				<div class="col-md-6">
 					<div class="form-group">
 						<div class="col-sm-13">
-							<input type="number" name="water" class="form-control" placeholder="How many times a day should it be watered" required>
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="col-sm-13">
-							<input type="text" name="watered" class="form-control" placeholder="Last watered" onfocus="(this.type='date')" onblur="(this.type='text')" required>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="form-group">
-						<div class="col-sm-13">
-							<select type="text" name="soil" class="form-control" required>
-  								<option disabled selected>Soil type</option>
-  								<option value="Loam">Loam</option>
-  								<option value="Clay soil">Clay soil</option>
-  								<option value="Sandy soil">Sandy soil</option>
-  								<option value="Silty soil">Silty soil</option>
-  								<option value="Other">Other</option>
+							<select type="text" name="water" class="form-control" placeholder="How many times a day should it be watered" required>
+  								<option disabled selected>How many times a day should it be watered</option>
+  								<option value="(1) Once">(1) Once</option>
+  								<option value="(2) Twice">(2) Twice</option>
+  								<option value="(3) Thric">(3) Thrice</option>
+  								<option value="More than 5">More than 5</option>
+   								<option value="Weekly">Weekly</option>
+  								<option value="Others">Others</option>
+  								<option value="Not sure">Not sure</option>
 							</select>
 						</div>
 					</div>
@@ -51,9 +41,55 @@
   								<option disabled selected>Sunlight</option>
   								<option value="Direct Sunlight">Direct Sunlight</option>
   								<option value="Indirect Sunlight">Indirect Sunlight</option>
+  								<option value="Others">Others</option>
+   								<option value="Not sure">Not sure</option>
 							</select>
 						</div>
 					</div>
+					<div class="form-group">
+						<div class="col-sm-13">
+							<select type="text" name="soil" class="form-control" required>
+  								<option disabled selected>Soil type</option>
+  								<option value="Loam">Loam</option>
+  								<option value="Clay soil">Clay soil</option>
+  								<option value="Sandy soil">Sandy soil</option>
+  								<option value="Silty soil">Silty soil</option>
+  								<option value="Others">Others</option>
+   								<option value="Not sure">Not sure</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<div class="col-sm-13">
+							<input type="text" name="watered" class="form-control" placeholder="Last watered" onfocus="(this.type='date')"  min="2022-04-01" max="2022-05-31" onblur="(this.type='text')" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-13">
+							<select type="text" name="requiredtime" class="form-control" required>
+  								<option disabled selected>Time for corresponding sunlight</option>
+  								<option value="All day">All day</option>
+  								<option value="Morning">Morning</option>
+  								<option value="Afternoon">Afternoon</option>
+  								<option value="Night">Night</option>
+  								<option value="Others">Others</option>
+   								<option value="Not sure">Not sure</option>
+							</select>
+						</div>
+					</div>
+				<div class="form-group">
+					<div class="col-sm-13">
+						<select type="text" name="temperature" class="form-control" required>
+  								<option disabled selected>Appropriate Temperature</option>
+  								<option value="(15 - 24°) Indoor Plants">(15 - 24°) Indoor Plants</option>
+  								<option value="(24 - 45°C) Indoor and Outdoor Plants">(24 - 45°C) Indoor and Outdoor Plants</option>
+  								<option value="Others">Others</option>
+   								<option value="Not sure">Not sure</option>
+							</select>
+				    	</div>
+			    	</div>
 				</div>
 				<div class="form-group">
 					<div class="col-sm-12">
@@ -87,13 +123,15 @@
 			
 				if ( isset( $_POST['sub'] ) ) {
 			
-					$title 		= addslashes( $_POST['title'] );
-					$water		= addslashes( $_POST['water'] );
-					$watered	= addslashes( $_POST['watered'] );
-					$soil		= addslashes( $_POST['soil'] );
-					$sun		= addslashes( $_POST['sun'] );
-					$content 	= addslashes( $_POST['content'] );
-					$topic 		= $_POST['topic'];
+								$title 		= addslashes( $_POST['title'] );
+								$water		= addslashes( $_POST['water'] );
+								$sun		= addslashes( $_POST['sun'] );
+								$soil		= addslashes( $_POST['soil'] );
+								$watered	= addslashes( $_POST['watered'] );
+								$requiredtime		= addslashes( $_POST['requiredtime'] );
+								$temperature		= addslashes( $_POST['temperature'] );
+								$content 	= addslashes( $_POST['content'] );
+								$topic 		= $_POST['topic'];
 
 					$plant = $_FILES['plant']['name'];
 
@@ -108,7 +146,7 @@
 			
 					}else {
 						
-						$insert 	= "INSERT into posts(user_id,topic_id,post_title, post_water, post_watered, post_soil, post_sun, post_content, post_plant, post_date) values('$user_id','$topic','$title','$water', '$watered', '$soil', '$sun', '$content','$plant',NOW())";
+						$insert 	= "INSERT into posts(user_id, topic_id, post_title, post_water, post_sun, post_soil, post_watered, post_required, post_temperature, post_content, post_plant, post_date) values('$user_id','$topic','$title','$water', '$sun', '$soil', '$watered', '$requiredtime', '$temperature', '$content','$plant',NOW())";
 			
 			
 						$run 		= mysqli_query( $connection, $insert );

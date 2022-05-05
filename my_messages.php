@@ -38,7 +38,7 @@
 								<th>Reply</th>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody class="andrew">
 							<?php 
 
 								$sel_msg = "SELECT * from messages where receiver='$user_id' AND msg_type='parent' order by 1 DESC";
@@ -68,10 +68,10 @@
 										$output = "<tr class='active'>";
 									}
 
-									$output .= "<td><a href='user_profile.php?u_id=$msg_sender'>$sender_name</a></td>";
+									$output .= "<td><a href='my_messages.php?msg_id=$msg_id'>$sender_name</a></td>";
 									$output .= "<td><a href='my_messages.php?msg_id=$msg_id'>$msg_sub</a></td>";
 									$output .= "<td>$msg_date</td>";
-									$output .= "<td><a href='my_messages.php?msg_id=$msg_id'>Reply</a></td>";
+									$output .= "<td><a href='my_messages.php?msg_id=$msg_id'>View</a></td>";
 									$output .= "</tr>";
 
 									echo $output; 
@@ -186,7 +186,7 @@
 						$output  .= "<div class='reply-to-message clearfix'>";
 						$output  .= "<form action='my_messages.php?msg_id=$get_id' method='POST' class='form-horizontal'>";
 						$output  .= "<textarea name='msg_reply' class='form-control' rows='10' placeholder='Reply to this message...' required></textarea><br>";
-						$output  .= "<input type='submit' name='submit_msg' class='btn btn-success pull-right' value='Reply to This Message'>";
+						$output  .= "<input type='submit' name='submit_msg' class='btn btn-success pull-right druu' value='Reply'>";
 						$output  .= "</form>";	 
 						$output  .= "</div>";
 						$output  .= "</div>";	
